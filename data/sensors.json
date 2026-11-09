@@ -1,0 +1,221 @@
+{
+  "sensors": [
+    {
+      "id": "ENV-001",
+      "name": "ENV-001",
+      "building": "Atlas",
+      "floor": "Floor_1",
+      "room": "101",
+      "position": {
+        "x": -11,
+        "y": -1,
+        "z": 1.4
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-002",
+      "name": "ENV-002",
+      "building": "Atlas",
+      "floor": "Floor_1",
+      "room": "102",
+      "position": {
+        "x": -5,
+        "y": -1,
+        "z": 1.4
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-003",
+      "name": "ENV-003",
+      "building": "Atlas",
+      "floor": "Floor_2",
+      "room": "201",
+      "position": {
+        "x": -11,
+        "y": -1,
+        "z": 4.699999999999999
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-004",
+      "name": "ENV-004",
+      "building": "Atlas",
+      "floor": "Floor_2",
+      "room": "202",
+      "position": {
+        "x": -5,
+        "y": -1,
+        "z": 4.699999999999999
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-005",
+      "name": "ENV-005",
+      "building": "Orion",
+      "floor": "Floor_1",
+      "room": "101",
+      "position": {
+        "x": 5,
+        "y": -1,
+        "z": 1.4
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-006",
+      "name": "ENV-006",
+      "building": "Orion",
+      "floor": "Floor_1",
+      "room": "102",
+      "position": {
+        "x": 11,
+        "y": -1,
+        "z": 1.4
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-007",
+      "name": "ENV-007",
+      "building": "Orion",
+      "floor": "Floor_2",
+      "room": "201",
+      "position": {
+        "x": 5,
+        "y": -1,
+        "z": 4.699999999999999
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    },
+    {
+      "id": "ENV-008",
+      "name": "ENV-008",
+      "building": "Orion",
+      "floor": "Floor_2",
+      "room": "202",
+      "position": {
+        "x": 11,
+        "y": -1,
+        "z": 4.699999999999999
+      },
+      "offlineMinutes": 100,
+      "thresholds": {
+        "temperature": [
+          10,
+          18,
+          27,
+          35
+        ],
+        "humidity": [
+          15,
+          30,
+          65,
+          85
+        ]
+      }
+    }
+  ],
+  "exampleLayout": true
+}

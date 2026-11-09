@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121619">
+  <meta name="description" content="Stratum — building temperature and humidity, in space and over time.">
+  <title>Stratum · Environmental monitor</title>
+  <link rel="icon" href="./assets/stratum.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <header class="appbar">
+    <a class="brand" href="./" aria-label="Stratum home"><span class="brand-mark"><i></i><i></i><i></i></span>stratum<span class="brand-dot">.</span></a>
+    <div class="app-subtitle">BUILDING ENVIRONMENT</div>
+    <div class="bar-spacer"></div>
+    <span id="data-label" class="tag"><span class="status-dot offline"></span>NO ACTIVE SENSORS</span>
+    <label class="source-label"><span class="sr-only">Data source</span><select id="source"><option value="repo">Repository feed</option><option value="demo">Local demo</option></select></label>
+    <button id="refresh" class="icon-button" title="Check the repository for new readings" aria-label="Refresh readings">↻</button>
+    <button id="help" class="icon-button" title="Data source, controls and map method" aria-label="Help">?</button>
+  </header>
+  <div id="notice" class="notice" role="status" hidden></div>
+  <main id="workspace">
+    <section id="left-pane" class="left-pane">
+      <section class="viewport-pane">
+        <div class="panelbar viewport-bar">
+          <span class="panel-icon">◇</span><strong id="viewport-title">3D viewport</strong>
+          <span id="scope-breadcrumb" class="muted ellipsis">All buildings</span>
+          <span class="bar-spacer"></span>
+          <select id="overlay" title="Spatial estimates on all visible floors" aria-label="Floor overlay"><option value="off">Overlay off</option><option value="temperature">Temperature map</option><option value="humidity">Humidity map</option></select>
+          <button id="grid" class="small active" title="Toggle the floor grid and axes" aria-pressed="true">Grid</button>
+          <button id="frame" class="small" title="Frame the visible scene (Home)">Frame</button>
+        </div>
+        <div id="viewport">
+          <canvas id="scene" aria-label="Interactive 3D building view"></canvas>
+          <div id="scene-loading" class="scene-loading">Preparing building geometry…</div>
+          <div class="gizmo" aria-label="Aligned views"><button data-view="top" title="Top view · Numpad 7">Z</button><button data-view="front" title="Front view · Numpad 1">Y</button><button data-view="side" title="Side view · Numpad 3">X</button><button data-view="perspective" class="gizmo-orbit" title="Perspective view">◉</button></div>
+          <div id="sensor-labels" aria-hidden="true"></div>
+          <div id="map-legend" class="map-legend" hidden><div class="legend-heading"><span id="legend-title">TEMPERATURE</span><span>ESTIMATE</span></div><div id="legend-ramp" class="legend-ramp"></div><div class="legend-values"><span id="legend-low"></span><span id="legend-high"></span></div><p id="map-note">Wall-aware steady diffusion</p></div>
+          <div class="viewport-caption"><span id="scope-caption">CAMPUS OVERVIEW</span><span id="geometry-caption">Fixed building geometry</span></div>
+          <div class="viewport-hint">Middle drag <b>orbit</b><span>·</span>Shift + middle <b>pan</b><span>·</span>Scroll <b>zoom</b></div>
+        </div>
+      </section>
+      <div id="timeline-split" class="splitter horizontal" role="separator" aria-label="Resize timeline" aria-orientation="horizontal" tabindex="0"></div>
+      <section id="timeline-pane" class="timeline-pane">
+        <div class="panelbar">
+          <span class="panel-icon">◷</span><strong>Timeline</strong>
+          <div id="periods" class="segmented" aria-label="Timeline range"><button class="active" data-period="day">Day</button><button data-period="week">Week</button><button data-period="month">Month</button><button data-period="year">Year</button></div>
+          <span class="bar-spacer"></span>
+          <button id="snap" class="small" title="Snap the playhead to ruler ticks" aria-pressed="false">Snap</button>
+          <button id="live" class="live active" title="Follow the current time"><span class="status-dot"></span>LIVE</button>
+        </div>
+        <div class="transport"><div><button id="step-back" class="icon-button" aria-label="Step backward">‹</button><button id="play" class="icon-button" aria-label="Play history">▷</button><button id="step-forward" class="icon-button" aria-label="Step forward">›</button><select id="speed" aria-label="Playback speed"><option value="60">60×</option><option value="3600" selected>3600×</option><option value="86400">86400×</option></select></div><span id="playhead-label">—</span><span id="range-label" class="muted"></span></div>
+        <div class="timeline-canvas-wrap"><canvas id="timeline" tabindex="0" aria-label="Timeline: click or drag to choose a time, scroll to zoom"></canvas></div>
+        <div class="timeline-footer"><span><i class="line-key"></i>Temperature history<span class="footer-gap"></span><i class="line-key humidity"></i>Relative humidity</span><span id="timeline-source">Waiting for readings</span></div>
+      </section>
+    </section>
+    <div id="main-split" class="splitter vertical" role="separator" aria-label="Resize inspector" aria-orientation="vertical" tabindex="0"></div>
+    <aside id="right-pane" class="right-pane">
+      <section id="outliner-pane" class="outliner-pane">
+        <div class="panelbar"><span class="panel-icon">☷</span><strong>Scene collection</strong><span class="bar-spacer"></span><span id="floor-count" class="count"></span></div>
+        <div class="tree-head"><span>NAME</span><span>VISIBLE</span></div>
+        <div id="outliner" class="outliner" aria-label="Buildings and floors"></div>
+        <div class="outliner-foot"><span class="status-dot"></span><span id="online-count">0 sensors online</span><span class="bar-spacer"></span><span id="sensor-count"></span></div>
+      </section>
+      <div id="inspector-split" class="splitter horizontal" role="separator" aria-label="Resize scene collection" aria-orientation="horizontal" tabindex="0"></div>
+      <section class="inspector-pane">
+        <div class="panelbar"><span class="panel-icon">◴</span><strong>Inspector</strong><span class="bar-spacer"></span><span id="inspector-source" class="micro-tag">REPOSITORY</span></div>
+        <div id="inspector-scroll">
+          <div class="inspector-heading"><div><span id="selection-kind" class="eyebrow">CAMPUS</span><h1 id="selection-name">All buildings</h1><p id="selection-detail">Sensors appear on every visible floor.</p></div><span id="selection-status" class="status-chip offline">Offline</span></div>
+          <div class="metrics"><div class="metric"><div>TEMPERATURE</div><strong id="temperature-value">—<small> °C</small></strong><span id="temperature-sub">No current reading</span></div><div class="metric"><div>REL. HUMIDITY</div><strong id="humidity-value">—<small> %</small></strong><span id="humidity-sub">No current reading</span></div></div>
+          <div id="received" class="received">No readings received</div>
+          <div id="sensor-detail" hidden><div class="section-label">TEMPERATURE<span>°C</span></div><div class="chart-wrap"><canvas id="temperature-chart" aria-label="Sensor temperature history"></canvas></div><div id="temperature-stats" class="stats"></div><div class="section-label humidity-label">RELATIVE HUMIDITY<span>%</span></div><div class="chart-wrap"><canvas id="humidity-chart" aria-label="Sensor humidity history"></canvas></div><div id="humidity-stats" class="stats"></div><div id="sample-tooltip" class="sample-tooltip">Hover over a graph to inspect an actual sample.</div><div id="dew-point" class="dew-point"></div></div>
+          <div id="scope-detail"><div class="section-label">SENSORS IN SELECTION<span id="scope-sensor-count">0</span></div><div id="sensor-list"></div><p class="muted scope-instruction">Select a sensor for its history. Markers follow floor visibility.</p></div>
+          <div class="method-note" id="source-explanation">Readings arrive from the repository. The page checks for updates automatically.</div>
+        </div>
+      </section>
+    </aside>
+  </main>
+  <footer class="statusbar"><span id="connection-status">Connecting to sensor feed…</span><span class="bar-spacer"></span><span id="scene-status">4 floors</span><span class="status-divider"></span><span id="clock"></span></footer>
+  <dialog id="help-dialog"><div class="dialog-top"><span class="eyebrow">STRATUM / HOW IT WORKS</span><button id="close-help" class="icon-button" aria-label="Close help">×</button></div><h2>The building, in real time.</h2><p>Choose a floor in the scene collection, then click a sensor to inspect its readings. Drag the timeline to explore history. <b>LIVE</b> returns to the current time.</p><h3>Data source</h3><p><b>Repository feed</b> reads the Pi’s snapshot every 30 seconds. After the expiry interval (15 minutes by default), a sensor becomes offline. <b>Local demo</b> generates a year of simulated history in this browser; it does not upload anything. Published test data is also visibly labelled simulated.</p><h3>Maps</h3><p>The overlay fills every visible modeled floor footprint. Sensor markers respect wall occlusion in overview modes; floor mode shows them through walls. A finite-volume solver estimates a steady diffusion field between sensor readings, with lower conductance across modeled walls and open flow paths at doorways. Temperature runs blue → green → red; humidity runs green → blue.</p><p>This is a spatial estimate. Wall coefficients are relative assumptions; airflow, HVAC, real wall materials, and moisture transport are not measured. RH is interpolated as a scalar, not modeled as water-vapor mass transport. Regions without a connected sensor remain transparent.</p><h3>Viewport controls</h3><p>Middle drag: orbit. Shift + middle: pan. Scroll: zoom. Left-click: select sensor. Home: frame scene. Numpad 1 / 3 / 7: front / side / top. Right-drag also pans. Drag the panel dividers to resize the workspace.</p><p class="muted">Static app · Three.js 0.180.0 · GPL-3.0</p></dialog>
+  <noscript>This application needs JavaScript to display the buildings and sensor readings.</noscript>
+</body>
+</html>

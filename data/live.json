@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-09T00:00:00Z",
+  "source": "real",
+  "gateway_id": "not-connected",
+  "stale_after_seconds": 900,
+  "history": {
+    "base": "data/history/real",
+    "months": [],
+    "revision": "initial"
+  },
+  "sensors": [
+    {
+      "sensor_id": "ENV-001",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-002",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-003",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-004",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-005",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-006",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-007",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    },
+    {
+      "sensor_id": "ENV-008",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    }
+  ]
+}
