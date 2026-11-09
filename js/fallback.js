@@ -1,6 +1,7 @@
 import {ROOT} from './data.js';
 import {decodeRLE,ramp} from './field.js';
 import {FloorOverlays,legend} from './overlays.js';
+import {CAMERA_DURATION_MS,WHEEL_SENSITIVITY,easeInOut,dampZoom,wheelPixels,reducedMotion} from './motion.js';
 const $=id=>document.getElementById(id);
 const colors={normal:'#9cdbbd',warning:'#dfbb74',critical:'#ed877f',offline:'#77848e'};
 
@@ -20,7 +21,7 @@ export class FloorPlanViewer {
     $('scene-loading').classList.remove('error');$('scene-loading').textContent='2D floor plan · 3D unavailable in this browser';
     let drag=null;
     canvas.addEventListener('contextmenu',e=>e.preventDefault());
-    canvas.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,pan:[...this.pan],button:e.button};canvas.setPointerCapture(e.pointerId);});
+    canvas.addEventListener('pointerdown',e=>{this.viewMotion=null;this.zoomGoal=null;drag={x:e.clientX,y:e.clientY,pan:[...this.pan],button:e.button};canvas.setPointerCapture(e.pointerId);});
     canvas.addEventListener('pointermove',e=>{if(drag&&drag.button!==0){this.pan=[drag.pan[0]+e.clientX-drag.x,drag.pan[1]+e.clientY-drag.y];this.draw();}});
     canvas.addEventListener('pointerup',e=>{
       if(!drag)return;const click=drag.button===0&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)<5;drag=null;if(!click)return;
@@ -30,7 +31,12 @@ export class FloorPlanViewer {
       const card=this.cards.find(c=>x>=c.x&&x<=c.x+c.w&&y>=c.y&&y<=c.y+c.h);if(card)this.onFloor?.(card.floor);
     });
     canvas.addEventListener('pointercancel',()=>{drag=null;});
-    canvas.addEventListener('wheel',e=>{e.preventDefault();this.zoom=Math.max(.5,Math.min(5,this.zoom*Math.exp(-e.deltaY*.001)));this.draw();},{passive:false});
+    canvas.addEventListener('wheel',e=>{
+      e.preventDefault();this.viewMotion=null;
+      this.zoomGoal=Math.max(.5,Math.min(5,(this.zoomGoal??this.zoom)*Math.exp(-wheelPixels(e,canvas.clientHeight)*WHEEL_SENSITIVITY)));
+      if(reducedMotion()){this.zoom=this.zoomGoal;this.zoomGoal=null;this.draw();}
+      else this.requestMotion();
+    },{passive:false});
     new ResizeObserver(()=>this.draw()).observe(canvas.parentElement);
   }
   setScope(scope,selected,visible) {
@@ -54,7 +60,28 @@ export class FloorPlanViewer {
       ctx.putImageData(image,0,0);this.cache.set(floor.key,{map,canvas});this.signature='';this.draw();this.updateMap(this.metric);
     }catch(e){this.cache.set(floor.key,{error:e.message});this.draw();}
   }
-  frame(){this.zoom=1;this.pan=[0,0];this.draw();}
+  frame(){
+    this.zoomGoal=null;
+    if(reducedMotion()){this.zoom=1;this.pan=[0,0];this.viewMotion=null;this.draw();return;}
+    this.viewMotion={start:performance.now(),zoom:this.zoom,pan:[...this.pan]};this.requestMotion();
+  }
+  requestMotion(){
+    if(this.motionPending)return;
+    this.motionPending=true;let previous=performance.now();
+    const step=now=>{
+      const elapsed=Math.min(64,Math.max(0,now-previous));previous=now;
+      if(this.viewMotion){
+        const m=this.viewMotion,p=Math.min(1,Math.max(0,(now-m.start)/CAMERA_DURATION_MS)),t=easeInOut(p);
+        this.zoom=Math.exp(Math.log(m.zoom)*(1-t));this.pan=m.pan.map(v=>v*(1-t));
+        if(p===1){this.zoom=1;this.pan=[0,0];this.viewMotion=null;}
+      }else if(this.zoomGoal!==null&&this.zoomGoal!==undefined){
+        this.zoom=dampZoom(this.zoom,this.zoomGoal,elapsed);if(this.zoom===this.zoomGoal)this.zoomGoal=null;
+      }
+      this.draw();
+      if(this.viewMotion||this.zoomGoal!=null)requestAnimationFrame(step);else this.motionPending=false;
+    };
+    requestAnimationFrame(step);
+  }
   focusSensor(){this.draw();}
   view(){this.frame();}
   toggleProjection(){}

@@ -4,6 +4,7 @@ import {GLTFLoader} from '../vendor/three/addons/loaders/GLTFLoader.js';
 import {ROOT} from './data.js';
 import {ramp} from './field.js';
 import {FloorOverlays,legend} from './overlays.js';
+import {CAMERA_DURATION_MS,WHEEL_SENSITIVITY,easeInOut,dampZoom,wheelPixels,reducedMotion} from './motion.js';
 
 const asset=path=>new URL(path.split('/').map(encodeURIComponent).join('/'),ROOT);
 const colors={normal:0x9cdbbd,warning:0xdfbb74,critical:0xef887f,offline:0x77848e};
@@ -33,6 +34,11 @@ export class Viewer {
     this.perspective=new THREE.PerspectiveCamera(40,1,0.025,10000);
     this.orthographic=new THREE.OrthographicCamera(-10,10,10,-10,0.025,10000);
     this.camera=this.perspective;this.camera.position.set(29,27,32);this.makeControls();
+    canvas.addEventListener('wheel',event=>{
+      event.preventDefault();event.stopImmediatePropagation();
+      this.queueZoom(wheelPixels(event,canvas.clientHeight));
+    },{capture:true,passive:false});
+    canvas.addEventListener('pointerdown',()=>{this.flight=null;this.wheelZoom=null;},{capture:true});
     this.scene.add(new THREE.HemisphereLight(0xe6efff,0x72786a,2.6));
     const sun=new THREE.DirectionalLight(0xfff0dd,3.2);sun.position.set(-15,30,15);this.scene.add(sun);
     const fill=new THREE.DirectionalLight(0xafcfe8,1.5);fill.position.set(20,15,-20);this.scene.add(fill);
@@ -65,14 +71,16 @@ export class Viewer {
     this.overlays=new FloorOverlays(this.worker,(r,e)=>this.mapResult(r,e),key=>{const plane=this.mapPlanes.get(key);if(plane){this.scene.remove(plane);dispose(plane);this.mapPlanes.delete(key);this.dirty=true;}},legend);
     this.worker.onerror=()=>this.status('The map worker could not start.',true);
     this.observer=new ResizeObserver(()=>this.resize());this.observer.observe(canvas.parentElement);
-    this.resize();this.animate=()=>{this.loop();requestAnimationFrame(this.animate);};requestAnimationFrame(this.animate);
+    this.resize();this.animate=now=>{this.loop(now);requestAnimationFrame(this.animate);};requestAnimationFrame(this.animate);
   }
   makeControls(target) {
-    this.controls?.dispose();this.controls=new OrbitControls(this.camera,this.canvas);this.controls.enableDamping=true;this.controls.dampingFactor=.1;
+    this.controls?.dispose();this.controls=new OrbitControls(this.camera,this.canvas);this.controls.enableDamping=true;this.controls.dampingFactor=.065;
+    this.controls.rotateSpeed=.8;this.controls.panSpeed=.85;this.controls.zoomSpeed=.65;
     this.controls.minDistance=.35;this.controls.maxDistance=3000;this.controls.maxPolarAngle=Math.PI*.95;
+    this.controls.minZoom=.05;this.controls.maxZoom=100;
     this.controls.mouseButtons={LEFT:-1,MIDDLE:THREE.MOUSE.ROTATE,RIGHT:THREE.MOUSE.PAN};
     if(target) this.controls.target.copy(target);
-    this.controls.addEventListener('start',()=>{this.flight=null;this.dirty=true;});
+    this.controls.addEventListener('start',()=>{this.flight=null;this.wheelZoom=null;this.dirty=true;});
     this.controls.addEventListener('change',()=>{this.dirty=true;});
   }
   status(message,error=false) {
@@ -81,7 +89,12 @@ export class Viewer {
   resize() {
     const w=this.canvas.clientWidth,h=this.canvas.clientHeight;if(!w||!h)return;
     this.renderer.setSize(w,h,false);this.perspective.aspect=w/h;this.perspective.updateProjectionMatrix();
-    const span=this.orthoSpan||12;this.orthographic.left=-span*w/h;this.orthographic.right=span*w/h;this.orthographic.top=span;this.orthographic.bottom=-span;this.orthographic.updateProjectionMatrix();this.dirty=true;
+    this.setOrthoSpan(this.orthoSpan||12);this.dirty=true;
+  }
+  setOrthoSpan(span) {
+    this.orthoSpan=span;const aspect=this.perspective.aspect;
+    this.orthographic.left=-span*aspect;this.orthographic.right=span*aspect;
+    this.orthographic.top=span;this.orthographic.bottom=-span;this.orthographic.updateProjectionMatrix();
   }
   visibleFloors() { return this.floors.filter(f=>this.desired.has(f.key)); }
   setScope(scope,selected,visible) {
@@ -116,28 +129,39 @@ export class Viewer {
     const box=new THREE.Box3();for(const f of this.visibleFloors())box.union(new THREE.Box3(new THREE.Vector3(...f.bounds[0]),new THREE.Vector3(...f.bounds[1])));
     if(box.isEmpty())box.set(new THREE.Vector3(-3,0,-3),new THREE.Vector3(3,3,3));return box;
   }
-  fly(target,position) {
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches) {this.controls.target.copy(target);this.camera.position.copy(position);this.controls.update();this.dirty=true;return;}
-    this.flight={target:target.clone(),position:position.clone()};this.dirty=true;
+  fly(target,position,span=this.orthoSpan||12) {
+    this.wheelZoom=null;
+    const fromTarget=this.controls.target.clone(),fromPosition=this.camera.position.clone();
+    const fromSpan=(this.orthoSpan||12)/(this.camera.isOrthographicCamera?this.camera.zoom:1);
+    // Start the new flight from the visible pose, without old drag momentum.
+    this.makeControls(fromTarget);
+    if(this.camera.isOrthographicCamera){this.camera.zoom=1;this.setOrthoSpan(fromSpan);}
+    if(reducedMotion()) {
+      this.flight=null;this.controls.target.copy(target);this.camera.position.copy(position);
+      this.setOrthoSpan(span);this.controls.update();this.dirty=true;return;
+    }
+    this.flight={start:performance.now(),fromTarget,fromPosition,fromSpan,
+      target:target.clone(),position:position.clone(),span};this.dirty=true;
   }
-  frame() {
+  frame(fixedDirection=null) {
     const box=this.bounds(),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3());
     const radius=size.length()/2;const distance=radius/Math.sin(THREE.MathUtils.degToRad(20))*1.15/Math.min(1,this.perspective.aspect);
-    const direction=this.camera.position.clone().sub(this.controls.target).normalize();if(direction.length()<.1)direction.set(1,.9,1).normalize();
-    this.orthoSpan=radius*1.2;this.resize();this.fly(center,center.clone().addScaledVector(direction,distance));
+    const direction=fixedDirection?fixedDirection.clone().normalize():this.camera.position.clone().sub(this.controls.target).normalize();if(direction.length()<.1)direction.set(1,.9,1).normalize();
+    this.fly(center,center.clone().addScaledVector(direction,distance),radius*1.2);
   }
   focusSensor(sensor) {
     const p=sensor.position,target=new THREE.Vector3(p.x,p.z,-p.y),direction=this.camera.position.clone().sub(this.controls.target).normalize();
-    this.orthoSpan=2;this.resize();this.fly(target,target.clone().addScaledVector(direction,3.8));
+    this.fly(target,target.clone().addScaledVector(direction,3.8),2);
   }
   view(axis) {
-    if(axis==='perspective') {if(this.camera.isOrthographicCamera)this.toggleProjection();this.camera.position.copy(this.controls.target).add(new THREE.Vector3(18,18,20));this.frame();return;}
+    if(axis==='perspective') {if(this.camera.isOrthographicCamera)this.toggleProjection();this.frame(new THREE.Vector3(18,18,20));return;}
     const center=this.selected?this.markerObjects.get(this.selected.id).position.clone():this.bounds().getCenter(new THREE.Vector3());
     const distance=this.camera.position.distanceTo(this.controls.target);
     const direction={top:new THREE.Vector3(0,1,.0001),front:new THREE.Vector3(0,0,1),side:new THREE.Vector3(1,0,0)}[axis];
     this.fly(center,center.clone().addScaledVector(direction,distance));
   }
   toggleProjection() {
+    this.flight=null;this.wheelZoom=null;
     const old=this.camera,target=this.controls.target.clone();this.camera=old.isPerspectiveCamera?this.orthographic:this.perspective;
     this.camera.position.copy(old.position);this.camera.quaternion.copy(old.quaternion);
     if(this.camera.isOrthographicCamera)this.orthoSpan=old.position.distanceTo(target)*Math.tan(THREE.MathUtils.degToRad(20));
@@ -185,12 +209,41 @@ export class Viewer {
     this.raycaster.far=Infinity;
     return hidden;
   }
-  loop() {
+  queueZoom(delta) {
+    this.flight=null;
+    const ortho=this.camera.isOrthographicCamera;
+    const current=ortho?this.camera.zoom:this.camera.position.distanceTo(this.controls.target);
+    const target=(this.wheelZoom?.target||current)*Math.exp(delta*WHEEL_SENSITIVITY*(ortho?-1:1));
+    this.wheelZoom={target:Math.max(ortho?this.controls.minZoom:this.controls.minDistance,
+      Math.min(ortho?this.controls.maxZoom:this.controls.maxDistance,target))};
+    if(reducedMotion())this.applyZoom(this.wheelZoom.target);
+    this.dirty=true;
+  }
+  applyZoom(value) {
+    if(this.camera.isOrthographicCamera){this.camera.zoom=value;this.camera.updateProjectionMatrix();}
+    else {
+      const direction=this.camera.position.clone().sub(this.controls.target).normalize();
+      this.camera.position.copy(this.controls.target).addScaledVector(direction,value);
+    }
+    if(this.wheelZoom?.target===value)this.wheelZoom=null;
+  }
+  advanceMotion(now) {
+    const elapsed=Math.min(64,Math.max(0,now-(this.lastMotionTime??now-1000/60)));this.lastMotionTime=now;
     if(this.flight) {
-      this.camera.position.lerp(this.flight.position,.105);this.controls.target.lerp(this.flight.target,.105);
-      if(this.camera.position.distanceTo(this.flight.position)<.001&&this.controls.target.distanceTo(this.flight.target)<.001){this.camera.position.copy(this.flight.position);this.controls.target.copy(this.flight.target);this.flight=null;}
+      const flight=this.flight,progress=Math.min(1,Math.max(0,(now-flight.start)/CAMERA_DURATION_MS)),t=easeInOut(progress);
+      this.camera.position.lerpVectors(flight.fromPosition,flight.position,t);
+      this.controls.target.lerpVectors(flight.fromTarget,flight.target,t);
+      this.setOrthoSpan(Math.exp(Math.log(flight.fromSpan)+(Math.log(flight.span)-Math.log(flight.fromSpan))*t));
+      if(progress===1){this.camera.position.copy(flight.position);this.controls.target.copy(flight.target);this.setOrthoSpan(flight.span);this.flight=null;}
+      this.dirty=true;
+    } else if(this.wheelZoom) {
+      const current=this.camera.isOrthographicCamera?this.camera.zoom:this.camera.position.distanceTo(this.controls.target);
+      this.applyZoom(dampZoom(current,this.wheelZoom.target,elapsed));
       this.dirty=true;
     }
+  }
+  loop(now=performance.now()) {
+    this.advanceMotion(now);
     this.controls.update();if(!this.dirty)return;
     this.camera.updateMatrixWorld();this.scene.updateMatrixWorld(true);
     const w=this.canvas.clientWidth,h=this.canvas.clientHeight,forward=this.camera.getWorldDirection(new THREE.Vector3());

@@ -296,3 +296,9 @@ Sensors appear in every view whenever their floor is visible. In building and ca
 ### Updating an existing repository
 
 Upload `js/`, `vendor/`, and `index.html` from this ZIP over the corresponding files in your existing main branch. This includes the new `js/overlays.js`. Your installed models, sensor registry, data feed, and configuration do not need replacement. Optional updated regression tests are in `tests/visibility.test.js`.
+
+## Slower camera motion
+
+Sensor focus, framing, and aligned view changes now ease in and out over 1.4 seconds. Scroll zoom uses smaller steps and settles gradually; orbit and pan have gentler sensitivity and damping. Orthographic framing also eases the view scale. New input interrupts automatic movement. The operating system reduced-motion preference keeps focus and zoom immediate.
+
+For this animation update, upload the complete `js/` folder, including the new `js/motion.js`. The full ZIP also includes the latest sensor visibility and multi-floor overlay changes.
