@@ -25,7 +25,7 @@ export class Viewer {
     this.floors=catalog.buildings.flatMap(b=>b.floors.map(f=>({...f,building:b.id,key:`${b.id}/${f.id}`})));
     this.loaded=new Map();this.pending=new Set();this.failures=new Set();this.desired=new Set();this.mapCache=new Map();
     this.scope={};this.selected=null;this.values=new Map();this.dirty=true;this.job=0;this.mapSignature='';this.metric='off';
-    this.scene=new THREE.Scene();this.scene.fog=new THREE.FogExp2(0x242d32,0.004);
+    this.scene=new THREE.Scene();
     const context=canvas.getContext('webgl2',{antialias:true,alpha:true,powerPreference:'high-performance'});
     if(!context)throw new Error('WebGL2 is unavailable');
     this.renderer=new THREE.WebGLRenderer({canvas,context,antialias:true,alpha:true,powerPreference:'high-performance'});
