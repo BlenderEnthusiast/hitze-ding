@@ -192,11 +192,20 @@ export class Viewer {
       const t=max-min>1e-9?(result.field[i]-min)/(max-min):.5;
       const color=ramp(t,metric);rgba.set([...color,255],i*4);
     }
+    const geometryKey=JSON.stringify([map.cols,map.rows,map.step,map.origin,map.render_height]);
+    const previous=this.mapPlanes.get(current.key),existing=previous?.material.map;
+    if(previous?.userData.geometryKey===geometryKey&&existing?.image.width===map.cols&&existing.image.height===map.rows) {
+      existing.image.data.set(rgba);existing.needsUpdate=true;this.dirty=true;
+      return;
+    }
     const texture=new THREE.DataTexture(rgba,map.cols,map.rows,THREE.RGBAFormat);
     texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearFilter;texture.colorSpace=THREE.SRGBColorSpace;texture.needsUpdate=true;
     const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,opacity:this.config.mapOpacity||.58,depthWrite:false,side:THREE.DoubleSide,toneMapped:false});
     const plane=new THREE.Mesh(new THREE.PlaneGeometry(map.cols*map.step,map.rows*map.step),material);plane.rotation.x=Math.PI/2;
-    plane.position.set(map.origin[0]+(map.cols-1)*map.step/2,map.render_height,map.origin[1]+(map.rows-1)*map.step/2);plane.renderOrder=5;this.scene.add(plane);this.mapPlanes.set(current.key,plane);this.dirty=true;
+    plane.position.set(map.origin[0]+(map.cols-1)*map.step/2,map.render_height,map.origin[1]+(map.rows-1)*map.step/2);plane.renderOrder=5;plane.userData.geometryKey=geometryKey;
+    this.scene.add(plane);this.mapPlanes.set(current.key,plane);
+    if(previous){this.scene.remove(previous);dispose(previous);}
+    this.dirty=true;
   }
   isOccluded(position) {
     if(this.scope.floor)return false;

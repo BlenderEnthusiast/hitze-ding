@@ -25,7 +25,7 @@ export class FloorOverlays {
       const entry=[...this.entries.values()].find(e=>e.id===data.id);
       if(!entry)return;
       entry.pending=false;
-      if(data.error){entry.error=data.error;entry.signature='';}
+      if(data.error){entry.error=data.error;entry.signature='';this.remove(entry.key);}
       else {entry.approximate=!data.converged;this.result(data,entry);}
       this.report();
     };
@@ -46,7 +46,6 @@ export class FloorOverlays {
     for(const {floor,sites} of this.plan.layers){
       const signature=JSON.stringify([metric,sites,this.plan.min,this.plan.max]);
       if(this.entries.get(floor.key)?.signature===signature)continue;
-      this.remove(floor.key);
       const entry={id:++this.sequence,key:floor.key,metric,min:this.plan.min,max:this.plan.max,signature,pending:true};
       this.entries.set(floor.key,entry);
       Promise.resolve().then(()=>load(floor)).then(map=>{
@@ -55,7 +54,7 @@ export class FloorOverlays {
         this.worker.postMessage({id:entry.id,map,sites,metric,ratio:ratios?.[metric]||.035});
       }).catch(e=>{
         if(this.entries.get(floor.key)!==entry)return;
-        entry.pending=false;entry.error=e.message;entry.signature='';this.report();
+        entry.pending=false;entry.error=e.message;entry.signature='';this.remove(entry.key);this.report();
       });
     }
     this.report();
