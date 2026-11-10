@@ -1,9 +1,0 @@
-{
-  "title": "Stratum",
-  "github": { "owner": "", "repo": "", "branch": "sensor-data" },
-  "pollSeconds": 30,
-  "offlineAfterSeconds": 900,
-  "timezone": "Europe/Berlin",
-  "mapOpacity": 0.58,
-  "wallConductivity": { "temperature": 0.035, "humidity": 0.005 }
-}
