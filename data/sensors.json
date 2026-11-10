@@ -1572,6 +1572,237 @@
         "z": 2.499999523162842
       },
       "name": "160.001"
+    },
+    {
+      "id": "sporthalle013",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -21.109127044677734,
+        "y": 36.684452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle013"
+    },
+    {
+      "id": "sporthalle015",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -15.409126281738281,
+        "y": 30.784452438354492,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle015"
+    },
+    {
+      "id": "sporthalle014",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -19.309125900268555,
+        "y": 32.184452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle014"
+    },
+    {
+      "id": "sporthalle007.003",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -25.309125900268555,
+        "y": 30.184452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle007.003"
+    },
+    {
+      "id": "sporthalle012",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -25.40912628173828,
+        "y": 22.684452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle012"
+    },
+    {
+      "id": "sporthalle017",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -18.809125900268555,
+        "y": 21.784452438354492,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle017"
+    },
+    {
+      "id": "sporthalle016",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -14.109125137329102,
+        "y": 21.88445281982422,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle016"
+    },
+    {
+      "id": "sporthalle019",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -14.209125518798828,
+        "y": 5.384452819824219,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle019"
+    },
+    {
+      "id": "sporthalle018",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -18.40912628173828,
+        "y": 5.484452724456787,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle018"
+    },
+    {
+      "id": "sporthalle007.001",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -24.209125518798828,
+        "y": 14.184452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle007.001"
+    },
+    {
+      "id": "sporthalle010",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -25.1091251373291,
+        "y": 6.684452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle010"
+    },
+    {
+      "id": "sporthalle008",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -26.309125900268555,
+        "y": 3.8844521045684814,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle008"
+    },
+    {
+      "id": "sporthalle009",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -23.6091251373291,
+        "y": 3.5844521522521973,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle009"
+    },
+    {
+      "id": "sporthalle006",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -25.509124755859375,
+        "y": -3.3155479431152344,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle006"
+    },
+    {
+      "id": "sporthalle005",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -23.209125518798828,
+        "y": -2.8155479431152344,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle005"
+    },
+    {
+      "id": "sporthalle004",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -20.40912628173828,
+        "y": -4.915548324584961,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle004"
+    },
+    {
+      "id": "sporthalle003",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -15.809125900268555,
+        "y": -4.915548324584961,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle003"
+    },
+    {
+      "id": "sporthalle003.001",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -16.40912628173828,
+        "y": -11.215548515319824,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle003.001"
+    },
+    {
+      "id": "sporthalle004.001",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -24.709125518798828,
+        "y": -6.815548419952393,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle004.001"
+    },
+    {
+      "id": "sporthalle007.002",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -24.6091251373291,
+        "y": -13.415548324584961,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle007.002"
+    },
+    {
+      "id": "sporthalle007",
+      "building": "Sporthalle",
+      "floor": "Erdgeschoss",
+      "position": {
+        "x": -41.30912780761719,
+        "y": 9.184452056884766,
+        "z": 5.099999904632568
+      },
+      "name": "sporthalle007"
     }
   ],
   "exampleLayout": true

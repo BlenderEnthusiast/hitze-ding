@@ -249,7 +249,8 @@
               12.0,
               20.489248275756836
             ]
-          ]
+          ],
+          "map": "data/maps/Sporthalle/Erdgeschoss.json"
         }
       ]
     }
