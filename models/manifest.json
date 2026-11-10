@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "buildings": [
+    {
+      "id": "Atlas",
+      "floors": [
+        {
+          "id": "Floor_1",
+          "files": [
+            "models/all/Atlas/Floor_1/model.glb"
+          ],
+          "bounds": [
+            [
+              -14.0,
+              -0.26,
+              -4.0
+            ],
+            [
+              -2.0,
+              2.2,
+              4.0
+            ]
+          ],
+          "map": "data/maps/Atlas/Floor_1.json"
+        },
+        {
+          "id": "Floor_2",
+          "files": [
+            "models/all/Atlas/Floor_2/model.glb"
+          ],
+          "bounds": [
+            [
+              -14.0,
+              3.04,
+              -4.0
+            ],
+            [
+              -2.0,
+              5.5,
+              4.0
+            ]
+          ],
+          "map": "data/maps/Atlas/Floor_2.json"
+        }
+      ]
+    },
+    {
+      "id": "Orion",
+      "floors": [
+        {
+          "id": "Floor_1",
+          "files": [
+            "models/all/Orion/Floor_1/model.glb"
+          ],
+          "bounds": [
+            [
+              2.0,
+              -0.26,
+              -4.0
+            ],
+            [
+              14.0,
+              2.2,
+              4.0
+            ]
+          ],
+          "map": "data/maps/Orion/Floor_1.json"
+        },
+        {
+          "id": "Floor_2",
+          "files": [
+            "models/all/Orion/Floor_2/model.glb"
+          ],
+          "bounds": [
+            [
+              2.0,
+              3.04,
+              -4.0
+            ],
+            [
+              14.0,
+              5.5,
+              4.0
+            ]
+          ],
+          "map": "data/maps/Orion/Floor_2.json"
+        }
+      ]
+    }
+  ]
+}

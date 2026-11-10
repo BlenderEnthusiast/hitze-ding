@@ -1,0 +1,11 @@
+{
+  "sensors": [
+    {
+      "sensor_id": "ENV-001",
+      "online": false,
+      "received_at": null,
+      "temperature": null,
+      "humidity": null
+    }
+  ]
+}
