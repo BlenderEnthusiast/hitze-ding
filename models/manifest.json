@@ -120,7 +120,8 @@
               4.5,
               -92.48500633239746
             ]
-          ]
+          ],
+          "map": "data/maps/C/Erdgeschoss.json"
         },
         {
           "id": "Erster Stock",
@@ -138,7 +139,8 @@
               6.000091552734375,
               -94.8385009765625
             ]
-          ]
+          ],
+          "map": "data/maps/C/Erster Stock.json"
         }
       ]
     },
@@ -161,7 +163,8 @@
               5.0,
               -119.53646850585938
             ]
-          ]
+          ],
+          "map": "data/maps/D/Erdgeschoss.json"
         },
         {
           "id": "Erster Stock",
@@ -179,7 +182,8 @@
               8.000000238418579,
               -118.74259757995605
             ]
-          ]
+          ],
+          "map": "data/maps/D/Erster Stock.json"
         }
       ]
     },
