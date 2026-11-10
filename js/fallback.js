@@ -126,7 +126,6 @@ export class FloorPlanViewer {
         const sx=px+((s.position.x-map.origin[0])/map.step+.5)*scale,sy=py+((-s.position.y-map.origin[1])/map.step+.5)*scale;
         const value=this.values.get(s.id),color=colors[value?.status||'offline'];this.hits.push({sensor:s,x:sx,y:sy});
         ctx.strokeStyle=color;ctx.lineWidth=2;ctx.fillStyle='#1c2a2a';ctx.beginPath();ctx.arc(sx,sy,this.selected?.id===s.id?10:8,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle=color;ctx.beginPath();ctx.arc(sx,sy,3,0,Math.PI*2);ctx.fill();
-        ctx.font='10px "Segoe UI",sans-serif';ctx.fillStyle='#182428e8';const label=`${s.id}${value?.online?` · ${value.temperature.toFixed(1)}°`:''}`,width=ctx.measureText(label).width;ctx.fillRect(sx+14,sy-9,width+12,20);ctx.fillStyle=color;ctx.fillText(label,sx+20,sy+5);
       }
       ctx.restore();
     });

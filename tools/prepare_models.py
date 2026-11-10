@@ -6,8 +6,11 @@ import argparse
 import base64
 import json
 import math
+import os
 import statistics
 import struct
+import sys
+import tempfile
 from collections import deque
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -60,7 +63,7 @@ class Model:
                     self.binary = data
                 offset += 8 + size
         else:
-            self.doc = json.loads(path.read_text(encoding="utf-8"))
+            self.doc = json.loads(path.read_text(encoding="utf-8-sig"))
         self.buffers = {}
         self.accessors = {}
 
@@ -219,54 +222,119 @@ def prepare_floor(models, bounds, sensors, resolution):
             "domain_rle": rle(domain), "walls_rle": rle(walls)}
 
 
+def write_json(path, doc):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent, delete=False) as fp:
+            temp = Path(fp.name)
+            json.dump(doc, fp, ensure_ascii=False, allow_nan=False, indent=2 if path.name == "manifest.json" else None)
+            fp.write("\n")
+        os.replace(temp, path)
+    finally:
+        if temp is not None:
+            temp.unlink(missing_ok=True)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--root", type=Path, default=None, help="Website folder containing models/ and data/")
     parser.add_argument("--resolution", type=int, default=192)
     args = parser.parse_args(argv)
     if not 32 <= args.resolution <= 384:
         parser.error("--resolution must be between 32 and 384")
-    root = args.root.resolve()
-    sensors = json.loads((root/"data/sensors.json").read_text(encoding="utf-8"))["sensors"]
+    root = (args.root if args.root else Path.cwd() if (Path.cwd()/"models/all").is_dir() else ROOT).resolve()
+    hierarchy = root/"models/all"
+    print(f"Website folder: {root}", flush=True)
+    if not hierarchy.is_dir():
+        raise ValueError(f"Missing {hierarchy}. Run from the website folder, or pass --root PATH.")
+    registry = root/"data/sensors.json"
+    doc = json.loads(registry.read_text(encoding="utf-8-sig")) if registry.exists() else {"sensors": []}
+    if not isinstance(doc, dict) or not isinstance(doc.get("sensors"), list):
+        raise ValueError("data/sensors.json must contain a sensors array")
+    sensors = doc["sensors"]
+    warnings = []
+
+    def warn(message):
+        warnings.append(message)
+        print(f"WARNING: {message}", flush=True)
+
+    if not registry.exists():
+        warn("data/sensors.json is missing. Models can be listed, but no sensor maps can be prepared.")
+    extensions = {".glb", ".gltf"}
+    malformed = (OSError, ValueError, TypeError, KeyError, IndexError, struct.error)
+    misplaced = [p for p in hierarchy.iterdir() if p.is_file() and p.suffix.lower() in extensions]
+    for path in misplaced:
+        warn(f"Model outside a floor folder: {path.relative_to(root)}. Use models/all/BUILDING/FLOOR/model.glb.")
     buildings, keys = [], set()
-    for building in sorted((root/"models/all").iterdir()):
+    total_files, total_maps = 0, 0
+    for building in sorted(hierarchy.iterdir()):
         if not building.is_dir():
             continue
+        for path in sorted(building.iterdir()):
+            if path.is_file() and path.suffix.lower() in extensions:
+                warn(f"Model has no floor folder: {path.relative_to(root)}. Add a FLOOR directory inside {building.name}.")
         floors = []
         for floor in sorted(building.iterdir()):
             if not floor.is_dir():
                 continue
-            paths = sorted(p for p in floor.iterdir() if p.suffix.lower() in (".glb", ".gltf"))
+            paths = sorted(p for p in floor.rglob("*") if p.is_file() and p.suffix.lower() in extensions)
             if not paths:
                 continue
+            print(f"Scanning {building.name}/{floor.name}: {len(paths)} model file(s)", flush=True)
+            models, boxes, valid = [], [], []
             for path in paths:
-                if path.stat().st_size > 100*1024*1024:
-                    raise ValueError(f"GitHub blocks files over 100 MiB: {path}. Optimize or split the GLB first.")
-            models = [Model(p) for p in paths]
-            boxes = [m.bounds() for m in models]
+                try:
+                    if path.stat().st_size > 100*1024*1024:
+                        raise ValueError("Exceeds GitHub's 100 MiB ordinary-file limit. Optimize or split this GLB first.")
+                    with path.open("rb") as fp:
+                        if fp.read(80).startswith(b"version https://git-lfs.github.com/spec/"):
+                            raise ValueError("This is a Git LFS pointer, not model bytes. Supply the actual GLB/glTF file.")
+                    model = Model(path)
+                    box = model.bounds()
+                    models.append(model)
+                    boxes.append(box)
+                    valid.append(path)
+                    print(f"  Found {path.relative_to(root)}", flush=True)
+                except malformed as exc:
+                    warn(f"Skipped {path.relative_to(root)}: {exc}")
+            if not valid:
+                continue
             bounds = [[min(b[0][k] for b in boxes) for k in range(3)],
                       [max(b[1][k] for b in boxes) for k in range(3)]]
-            entry = {"id": floor.name, "files": [p.relative_to(root).as_posix() for p in paths], "bounds": bounds}
+            entry = {"id": floor.name, "files": [p.relative_to(root).as_posix() for p in valid], "bounds": bounds}
             sites = [s for s in sensors if s["building"] == building.name and s["floor"] == floor.name]
             if sites:
-                raster = prepare_floor(models, bounds, sites, args.resolution)
-                target = root/"data/maps"/building.name/(floor.name+".json")
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_text(json.dumps(raster, separators=(",", ":")), encoding="utf-8")
-                entry["map"] = target.relative_to(root).as_posix()
+                try:
+                    print("  Preparing wall and floor raster...", flush=True)
+                    raster = prepare_floor(models, bounds, sites, args.resolution)
+                    target = root/"data/maps"/building.name/(floor.name+".json")
+                    write_json(target, raster)
+                    entry["map"] = target.relative_to(root).as_posix()
+                    total_maps += 1
+                except malformed as exc:
+                    warn(f"{building.name}/{floor.name}: map unavailable ({exc}). The 3D model is still included.")
             floors.append(entry)
             keys.add((building.name, floor.name))
-            print(f"Prepared {building.name}/{floor.name}")
+            total_files += len(valid)
+            print(f"Included {building.name}/{floor.name} in manifest", flush=True)
         if floors:
             buildings.append({"id": building.name, "floors": floors})
     if not buildings:
-        raise ValueError("No floor models found under models/all/BUILDING/FLOOR/")
+        raise ValueError("No usable models found. Check the warnings and use models/all/BUILDING/FLOOR/*.glb or *.gltf. Existing manifest was left untouched.")
     for s in sensors:
         if (s["building"], s["floor"]) not in keys:
-            raise ValueError(f"Sensor {s['id']} references a missing floor")
-    (root/"models/manifest.json").write_text(json.dumps({"schema_version": 1, "buildings": buildings}, indent=2), encoding="utf-8")
-    print("Ready: upload models/, data/maps/, data/sensors.json, and models/manifest.json.")
+            warn(f"Sensor {s['id']} references missing floor {s['building']}/{s['floor']}. Check the names or remove obsolete sample entries.")
+    manifest = root/"models/manifest.json"
+    write_json(manifest, {"schema_version": 1, "buildings": buildings})
+    print(f"Wrote {manifest}: {len(buildings)} building(s), {len(keys)} floor(s), {total_files} model(s), {total_maps} map(s), {len(warnings)} warning(s).", flush=True)
+    print("Upload the model files, models/manifest.json, data/maps/, and data/sensors.json to the same website branch (normally main).", flush=True)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        raise SystemExit(main())
+    except (OSError, ValueError, TypeError, KeyError, IndexError, struct.error) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        raise SystemExit(1)

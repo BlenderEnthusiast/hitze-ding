@@ -51,7 +51,7 @@ export class Viewer {
     for(const sensor of sensors) {
       const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:this.markerTexture,color:colors.offline,depthTest:false,depthWrite:false,transparent:true}));
       const p=sensor.position;sprite.position.set(p.x,p.z,-p.y);sprite.scale.set(.5,.5,.5);sprite.userData.sensor=sensor;sprite.renderOrder=20;this.markers.add(sprite);this.markerObjects.set(sensor.id,sprite);
-      const label=document.createElement('div');label.className='sensor-label';label.hidden=true;label.textContent=sensor.id;document.querySelector('#sensor-labels').append(label);this.labels.set(sensor.id,label);
+      this.labels.set(sensor.id,{hidden:true});
     }
     this.loader=new GLTFLoader();this.raycaster=new THREE.Raycaster();
     let down=null;
@@ -173,8 +173,7 @@ export class Viewer {
     for(const sensor of this.sensors) {
       const value=values.get(sensor.id),sprite=this.markerObjects.get(sensor.id),label=this.labels.get(sensor.id);
       sprite.material.color.setHex(colors[value?.status||'offline']);
-      label.className=`sensor-label${value?.online?'':' offline'}${this.selected?.id===sensor.id?' selected':''}`;
-      label.textContent=value?.online?`${sensor.id} · ${value.temperature.toFixed(1)}°`:sensor.id;
+
     }
     this.dirty=true;
   }
@@ -252,8 +251,7 @@ export class Viewer {
       const depth=sprite.position.clone().sub(this.camera.position).dot(forward);
       const size=this.camera.isPerspectiveCamera?depth*2*Math.tan(THREE.MathUtils.degToRad(20))*27/Math.max(1,h):(this.camera.top-this.camera.bottom)/this.camera.zoom*27/Math.max(1,h);
       sprite.scale.setScalar(Math.max(.03,size));
-      const p=sprite.position.clone().project(this.camera);label.hidden=depth<=0||Math.abs(p.x)>1||Math.abs(p.y)>1||p.z>1||this.isOccluded(sprite.position);
-      label.style.left=`${(p.x+1)/2*w}px`;label.style.top=`${(1-p.y)/2*h}px`;
+
     }
     this.renderer.render(this.scene,this.camera);this.dirty=false;
   }

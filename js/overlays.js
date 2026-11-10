@@ -35,7 +35,7 @@ export class FloorOverlays {
     if(!this.plan)return;
     const entries=[...this.entries.values()];
     const error=entries.find(e=>e.error)?.error;
-    const message=error?`Map unavailable: ${error}`:entries.some(e=>e.pending)?'Solving visible floor overlays…':
+    const message=error?`Map unavailable: ${error}`:entries.some(e=>e.pending)?'Preparing visible floor overlays…':
       !entries.length?'No fresh readings on visible floors.':`${entries.length} floor overlay${entries.length===1?'':'s'} · ${entries.some(e=>e.approximate)?'approximate solve':'wall-aware spatial estimate'}`;
     this.status(this.plan,message);
   }
@@ -52,7 +52,7 @@ export class FloorOverlays {
       Promise.resolve().then(()=>load(floor)).then(map=>{
         if(this.entries.get(floor.key)!==entry)return;
         entry.map=map;
-        this.worker.postMessage({id:entry.id,map,sites,ratio:ratios?.[metric]||.035});
+        this.worker.postMessage({id:entry.id,map,sites,metric,ratio:ratios?.[metric]||.035});
       }).catch(e=>{
         if(this.entries.get(floor.key)!==entry)return;
         entry.pending=false;entry.error=e.message;entry.signature='';this.report();
