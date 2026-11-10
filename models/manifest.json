@@ -188,6 +188,49 @@
       ]
     },
     {
+      "id": "E",
+      "floors": [
+        {
+          "id": "Erdgeschoss",
+          "files": [
+            "models/all/E/Erdgeschoss/model.glb"
+          ],
+          "bounds": [
+            [
+              63.74753945445762,
+              -3.114372529089451,
+              -111.71908968964172
+            ],
+            [
+              81.13619979103397,
+              0.0,
+              -85.22189958429331
+            ]
+          ],
+          "map": "data/maps/E/Erdgeschoss.json"
+        },
+        {
+          "id": "Erster Stock",
+          "files": [
+            "models/all/E/Erster Stock/model.glb"
+          ],
+          "bounds": [
+            [
+              63.74754382302589,
+              -2.384185791015625e-07,
+              -111.71909483896344
+            ],
+            [
+              81.13620407805828,
+              3.000000238418579,
+              -85.22190495765521
+            ]
+          ],
+          "map": "data/maps/E/Erster Stock.json"
+        }
+      ]
+    },
+    {
       "id": "Sporthalle",
       "floors": [
         {
