@@ -2,6 +2,7 @@ import * as THREE from '../vendor/three/three.module.js';
 import {OrbitControls} from '../vendor/three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from '../vendor/three/addons/loaders/GLTFLoader.js';
 import {ROOT} from './data.js';
+import {daylightMode,readDaylight,loadReflectionSky,loadBakedScene,SurfaceDaylight} from './daylight.js';
 import {ramp} from './field.js';
 import {FloorOverlays,legend} from './overlays.js';
 import {CAMERA_DURATION_MS,WHEEL_SENSITIVITY,easeInOut,dampZoom,wheelPixels,reducedMotion} from './motion.js';
@@ -11,12 +12,17 @@ const colors={normal:0x9cdbbd,warning:0xdfbb74,critical:0xef887f,offline:0x77848
 function dispose(root) {
   const geometries=new Set(),materials=new Set(),textures=new Set();
   root.traverse(o=>{
+    o.userData.daylight?.dispose();
     if(o.geometry) geometries.add(o.geometry);
     for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[]) {
       materials.add(m); for(const v of Object.values(m)) if(v?.isTexture) textures.add(v);
     }
   });
-  for(const t of textures) t.dispose(); for(const m of materials) m.dispose(); for(const g of geometries) g.dispose();
+  const images=new Set();
+  for(const t of textures){if(t.image?.close)images.add(t.image);t.dispose();}
+  for(const bitmap of images)bitmap.close();
+  for(const m of materials)m.dispose();
+  for(const g of geometries)g.dispose();
 }
 
 export class Viewer {
@@ -30,6 +36,7 @@ export class Viewer {
     if(!context)throw new Error('WebGL2 is unavailable');
     this.renderer=new THREE.WebGLRenderer({canvas,context,antialias:true,alpha:true,powerPreference:'high-performance'});
     this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));this.renderer.outputColorSpace=THREE.SRGBColorSpace;
+    this.renderer.shadowMap.enabled=false;
     this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.18;
     this.perspective=new THREE.PerspectiveCamera(40,1,0.025,10000);
     this.orthographic=new THREE.OrthographicCamera(-10,10,10,-10,0.025,10000);
@@ -54,6 +61,22 @@ export class Viewer {
       this.labels.set(sensor.id,{hidden:true});
     }
     this.loader=new GLTFLoader();this.raycaster=new THREE.Raycaster();
+    this.lightTextureLoader=new THREE.TextureLoader();
+    this.floorRequests=new Map();this.geometryWarnings=new Map();
+    this.daylightReady=false;
+    readDaylight(ROOT).then(async index=>{
+      this.daylight=index;
+      if(index?.sky) {
+        try {index.skyTexture=await loadReflectionSky(index,this.lightTextureLoader);}
+        catch(error){this.warnGeometry('daylight','Sky reflections unavailable: '+error.message);}
+      }
+      this.exteriors=new Map(Object.entries(index?.exteriors||{}).map(([building,asset])=>{
+        const layer={key:'@exterior/'+building,id:'Exterior',building,asset};
+        return [layer.key,layer];
+      }));
+    })
+      .catch(error=>this.warnGeometry('daylight','Daylight unavailable: '+error.message))
+      .finally(()=>{this.daylightReady=true;this.loadMore();});
     let down=null;
     canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,button:e.button};});
     canvas.addEventListener('pointerup',e=>{
@@ -103,7 +126,15 @@ export class Viewer {
     this.scope=scope;this.selected=selected;
     const desired=new Set(this.floors.filter(f=>(!scope.building||f.building===scope.building)&&(!scope.floor||f.id===scope.floor)&&visible.get(f.key)!==false).map(f=>f.key));
     this.desired=desired;
-    for(const [key,root] of this.loaded) if(!desired.has(key)) { this.scene.remove(root);dispose(root);this.loaded.delete(key); }
+    for(const [key,request] of this.floorRequests || []) if(!this.geometryWanted(key)) request.abort();
+    const mode=daylightMode(scope);
+    if(mode!=='campus') this.hideSurroundings();
+    for(const [key,root] of this.loaded) {
+      if(this.geometryWanted(key) && root.userData.daylight) {
+        root.userData.daylight.show(this.floorLightMode(key)).catch(e=>this.warnGeometry(key,e.message));
+      }
+    }
+    for(const [key,root] of this.loaded) if(!this.geometryWanted(key)) { this.scene.remove(root);dispose(root);this.loaded.delete(key); }
     this.loadMore();
     for(const s of this.sensors) {
       this.markerObjects.get(s.id).visible=desired.has(`${s.building}/${s.floor}`);
@@ -113,17 +144,112 @@ export class Viewer {
     if(scopeChanged||selectionChanged) { this.clearMap();this.mapSignature='';if(selected)this.focusSensor(selected);else this.frame(); }
     this.updateValues(this.values);this.dirty=true;
   }
-  async loadMore() {
-    const next=this.floors.find(f=>this.desired.has(f.key)&&!this.loaded.has(f.key)&&!this.pending.has(f.key)&&!this.failures.has(f.key));
-    if(!next) { if(!this.pending.size&&!this.failures.size)this.status('');return; }
-    if(this.pending.size>=2)return;
-    this.pending.add(next.key);this.status(`Loading ${next.building} / ${next.id.replaceAll('_',' ')}…`);this.loadMore();
-    const root=new THREE.Group();root.name=next.key;
+  geometryWanted(key) {
+    const shell=this.exteriors?.get(key);
+    if(!shell)return this.desired.has(key);
+    if(daylightMode(this.scope)==='floor'||(this.scope.building&&shell.building!==this.scope.building))return false;
+    return this.floors.filter(f=>f.building===shell.building).every(f=>this.desired.has(f.key));
+  }
+  floorLightMode(key) {
+    const mode=daylightMode(this.scope);
+    if(mode==='floor'||this.exteriors?.has(key))return mode;
+    const building=key.slice(0,key.indexOf('/'));
+    // A manually isolated storey also uses its cutaway bake.
+    const siblings=this.floors.filter(f=>f.building===building);
+    if(siblings.some(f=>!this.desired.has(f.key)))return 'floor';
+    return mode;
+  }
+  warnGeometry(key,message) {
+    this.geometryWarnings.set(key,message);this.status(message,true);
+  }
+  idleStatus() {
+    const warnings=[...this.geometryWarnings].filter(([key])=>
+      key==='daylight'||(key==='surroundings'?daylightMode(this.scope)==='campus':this.geometryWanted(key)));
+    this.status(warnings.map(([,message])=>message).join(' · '),warnings.length>0);
+  }
+  async bakedRoot(spec,signal,mode) {
+    const root=await loadBakedScene(this.loader,spec,this.daylight.base,signal);
     try {
-      for(const path of next.files) {const gltf=await this.loader.loadAsync(asset(path).href);root.add(gltf.scene);}
-      if(this.desired.has(next.key)) {this.scene.add(root);root.updateMatrixWorld(true);this.loaded.set(next.key,root);}else dispose(root);
-    } catch(e) {dispose(root);this.failures.add(next.key);this.status(`Could not load ${next.key}: ${e.message}`,true);}
-    finally {this.pending.delete(next.key);this.dirty=true;this.loadMore();}
+      signal.throwIfAborted();
+      const surface=new SurfaceDaylight(root,spec,this.daylight,this.lightTextureLoader,()=>{this.dirty=true;});
+      root.userData.daylight=surface;
+      // The user may change floors while the original atlas is downloading.
+      let wanted;
+      do {
+        wanted=mode();
+        await surface.show(wanted);signal.throwIfAborted();
+      } while(wanted!==mode());
+      return root;
+    } catch(error) {dispose(root);throw error;}
+  }
+  hideSurroundings() {
+    this.landscapeRequest?.abort();
+    if(this.landscape) {
+      this.scene.remove(this.landscape);dispose(this.landscape);this.landscape=null;this.dirty=true;
+    }
+  }
+  async loadSurroundings() {
+    const pages=this.daylight?.surroundings;
+    if(!pages?.length||this.landscape||this.landscapeRequest||daylightMode(this.scope)!=='campus'||
+       this.geometryWarnings.has('surroundings'))return;
+    const request=new AbortController();this.landscapeRequest=request;
+    const group=new THREE.Group();this.landscape=group;this.scene.add(group);
+    try {
+      for(const [i,spec] of pages.entries()) {
+        this.status(`Loading campus surroundings (${i+1}/${pages.length})…`);
+        const tile=await this.bakedRoot(spec,request.signal,()=>'campus');
+        if(request.signal.aborted||daylightMode(this.scope)!=='campus'){dispose(tile);return;}
+        group.add(tile);tile.updateMatrixWorld(true);this.dirty=true;
+      }
+    } catch(error) {
+      if(!request.signal.aborted)this.warnGeometry('surroundings','Could not load surroundings: '+error.message);
+    } finally {
+      this.landscapeRequest=null;
+      if(!this.pending.size)this.idleStatus();
+      if(request.signal.aborted)this.loadMore();
+    }
+  }
+  async loadMore() {
+    if(!this.daylightReady)return;
+    const candidates=this.floors.concat(Array.from(this.exteriors?.values()||[]));
+    const next=candidates.find(f=>this.geometryWanted(f.key)&&!this.loaded.has(f.key)&&!this.pending.has(f.key)&&!this.failures.has(f.key));
+    if(!next) {
+      if(!this.pending.size&&!this.landscapeRequest){this.idleStatus();this.loadSurroundings();}
+      return;
+    }
+    if(this.pending.size>=2)return;
+    const request=new AbortController();
+    this.pending.add(next.key);this.floorRequests.set(next.key,request);
+    this.status(`Loading ${next.building} / ${next.id.replaceAll('_',' ')}…`);this.loadMore();
+    let root;
+    try {
+      const baked=this.daylight?.floors[next.key];
+      const spec=next.asset||(baked && JSON.stringify(next.files)===JSON.stringify(baked.sources) ? baked.asset : null);
+      if(spec) {
+        try {
+          root=await this.bakedRoot(spec,request.signal,()=>this.floorLightMode(next.key));
+        } catch(error) {
+          if(request.signal.aborted||next.asset)throw error;
+          this.warnGeometry(next.key,'Using original geometry for '+next.key+': '+error.message);
+        }
+      }
+      if(!root) {
+        root=new THREE.Group();
+        for(const path of next.files) {
+          request.signal.throwIfAborted();
+          const gltf=await this.loader.loadAsync(asset(path).href);root.add(gltf.scene);
+        }
+      }
+      request.signal.throwIfAborted();
+      root.name=next.key;this.scene.add(root);root.updateMatrixWorld(true);this.loaded.set(next.key,root);
+    } catch(error) {
+      if(root)dispose(root);
+      if(!request.signal.aborted) {
+        this.failures.add(next.key);this.warnGeometry(next.key,'Could not load '+next.key+': '+error.message);
+      }
+    } finally {
+      this.floorRequests.delete(next.key);this.pending.delete(next.key);this.dirty=true;this.loadMore();
+    }
   }
   bounds() {
     const box=new THREE.Box3();for(const f of this.visibleFloors())box.union(new THREE.Box3(new THREE.Vector3(...f.bounds[0]),new THREE.Vector3(...f.bounds[1])));
@@ -213,7 +339,9 @@ export class Viewer {
     this.raycaster.setFromCamera(new THREE.Vector2(point.x,point.y),this.camera);
     const distance=position.clone().sub(this.raycaster.ray.origin).dot(this.raycaster.ray.direction);
     this.raycaster.far=Math.max(0,distance-.05);
-    const hidden=this.raycaster.intersectObjects([...this.loaded.values()],true).length>0;
+    const obstacles=[...this.loaded.values()];
+    if(this.landscape)obstacles.push(this.landscape);
+    const hidden=this.raycaster.intersectObjects(obstacles,true).length>0;
     this.raycaster.far=Infinity;
     return hidden;
   }

@@ -1,0 +1,5327 @@
+{
+  "version": 1,
+  "range": 4.0,
+  "floors": {
+    "A/Erdgeschoss": {
+      "sources": [
+        "models/all/A/Erdgeschoss/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 208032,
+        "files": [
+          "floor-000/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-000/campus.png",
+          "building": "floor-000/building.png",
+          "floor": "floor-000/floor.png"
+        }
+      }
+    },
+    "A/Nawi Ebene": {
+      "sources": [
+        "models/all/A/Nawi Ebene/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 209332,
+        "files": [
+          "floor-001/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-001/campus.png",
+          "building": "floor-001/building.png",
+          "floor": "floor-001/floor.png"
+        }
+      }
+    },
+    "A/dritter Stock": {
+      "sources": [
+        "models/all/A/dritter Stock/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 196944,
+        "files": [
+          "floor-002/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-002/campus.png",
+          "building": "floor-002/building.png",
+          "floor": "floor-002/floor.png"
+        }
+      }
+    },
+    "A/erster Stock": {
+      "sources": [
+        "models/all/A/erster Stock/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 198804,
+        "files": [
+          "floor-003/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-003/campus.png",
+          "building": "floor-003/building.png",
+          "floor": "floor-003/floor.png"
+        }
+      }
+    },
+    "A/zweiter Stock": {
+      "sources": [
+        "models/all/A/zweiter Stock/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 152904,
+        "files": [
+          "floor-004/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-004/campus.png",
+          "building": "floor-004/building.png",
+          "floor": "floor-004/floor.png"
+        }
+      }
+    },
+    "C/Erdgeschoss": {
+      "sources": [
+        "models/all/C/Erdgeschoss/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 127696,
+        "files": [
+          "floor-005/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-005/campus.png",
+          "building": "floor-005/building.png",
+          "floor": "floor-005/floor.png"
+        }
+      }
+    },
+    "C/erster Stock": {
+      "sources": [
+        "models/all/C/erster Stock/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 61520,
+        "files": [
+          "floor-006/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-006/campus.png",
+          "building": "floor-006/building.png",
+          "floor": "floor-006/floor.png"
+        }
+      }
+    },
+    "D/Erdgeschoss": {
+      "sources": [
+        "models/all/D/Erdgeschoss/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 109540,
+        "files": [
+          "floor-007/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-007/campus.png",
+          "building": "floor-007/building.png",
+          "floor": "floor-007/floor.png"
+        }
+      }
+    },
+    "D/erster Stock": {
+      "sources": [
+        "models/all/D/erster Stock/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 72476,
+        "files": [
+          "floor-008/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-008/campus.png",
+          "building": "floor-008/building.png",
+          "floor": "floor-008/floor.png"
+        }
+      }
+    },
+    "E/Erdgeschoss": {
+      "sources": [
+        "models/all/E/Erdgeschoss/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 40304,
+        "files": [
+          "floor-009/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-009/campus.png",
+          "building": "floor-009/building.png",
+          "floor": "floor-009/floor.png"
+        }
+      }
+    },
+    "E/erster Stock": {
+      "sources": [
+        "models/all/E/erster Stock/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 42372,
+        "files": [
+          "floor-010/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-010/campus.png",
+          "building": "floor-010/building.png",
+          "floor": "floor-010/floor.png"
+        }
+      }
+    },
+    "Sporthalle/Erdgeschoss": {
+      "sources": [
+        "models/all/Sporthalle/Erdgeschoss/model.glb"
+      ],
+      "asset": {
+        "uv": 1,
+        "bytes": 111132,
+        "files": [
+          "floor-011/model.glb"
+        ],
+        "maps": {
+          "campus": "floor-011/campus.png",
+          "building": "floor-011/building.png",
+          "floor": "floor-011/building.png"
+        }
+      }
+    }
+  },
+  "exteriors": {},
+  "surroundings": [
+    {
+      "uv": 4,
+      "bytes": 11292192,
+      "files": [
+        "surroundings-000/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-000/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396796,
+      "files": [
+        "surroundings-001/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-001/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6586100,
+      "files": [
+        "surroundings-002/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-002/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6038300,
+      "files": [
+        "surroundings-003/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-003/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605280,
+      "files": [
+        "surroundings-004/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-004/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6392004,
+      "files": [
+        "surroundings-005/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-005/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6035604,
+      "files": [
+        "surroundings-006/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-006/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6378708,
+      "files": [
+        "surroundings-007/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-007/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6358068,
+      "files": [
+        "surroundings-008/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-008/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025484,
+      "files": [
+        "surroundings-009/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-009/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6588808,
+      "files": [
+        "surroundings-010/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-010/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6397564,
+      "files": [
+        "surroundings-011/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-011/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030236,
+      "files": [
+        "surroundings-012/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-012/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6642452,
+      "files": [
+        "surroundings-013/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-013/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6341940,
+      "files": [
+        "surroundings-014/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-014/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032056,
+      "files": [
+        "surroundings-015/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-015/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6603464,
+      "files": [
+        "surroundings-016/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-016/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6400060,
+      "files": [
+        "surroundings-017/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-017/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029800,
+      "files": [
+        "surroundings-018/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-018/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398764,
+      "files": [
+        "surroundings-019/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-019/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6588524,
+      "files": [
+        "surroundings-020/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-020/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030428,
+      "files": [
+        "surroundings-021/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-021/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6619692,
+      "files": [
+        "surroundings-022/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-022/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6378320,
+      "files": [
+        "surroundings-023/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-023/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12280452,
+      "files": [
+        "surroundings-024/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-024/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6587248,
+      "files": [
+        "surroundings-025/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-025/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399100,
+      "files": [
+        "surroundings-026/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-026/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029076,
+      "files": [
+        "surroundings-027/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-027/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6344628,
+      "files": [
+        "surroundings-028/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-028/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6640432,
+      "files": [
+        "surroundings-029/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-029/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030524,
+      "files": [
+        "surroundings-030/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-030/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6593068,
+      "files": [
+        "surroundings-031/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-031/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6405540,
+      "files": [
+        "surroundings-032/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-032/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6020680,
+      "files": [
+        "surroundings-033/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-033/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608932,
+      "files": [
+        "surroundings-034/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-034/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6382164,
+      "files": [
+        "surroundings-035/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-035/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029176,
+      "files": [
+        "surroundings-036/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-036/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6597956,
+      "files": [
+        "surroundings-037/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-037/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399392,
+      "files": [
+        "surroundings-038/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-038/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11777288,
+      "files": [
+        "surroundings-039/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-039/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6649128,
+      "files": [
+        "surroundings-040/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-040/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6342604,
+      "files": [
+        "surroundings-041/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-041/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6055000,
+      "files": [
+        "surroundings-042/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-042/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6592684,
+      "files": [
+        "surroundings-043/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-043/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6394592,
+      "files": [
+        "surroundings-044/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-044/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6339680,
+      "files": [
+        "surroundings-045/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-045/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6017320,
+      "files": [
+        "surroundings-046/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-046/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6657100,
+      "files": [
+        "surroundings-047/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-047/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6347404,
+      "files": [
+        "surroundings-048/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-048/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12206644,
+      "files": [
+        "surroundings-049/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-049/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6598692,
+      "files": [
+        "surroundings-050/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-050/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6392480,
+      "files": [
+        "surroundings-051/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-051/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028220,
+      "files": [
+        "surroundings-052/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-052/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6347508,
+      "files": [
+        "surroundings-053/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-053/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6390800,
+      "files": [
+        "surroundings-054/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-054/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025052,
+      "files": [
+        "surroundings-055/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-055/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6343428,
+      "files": [
+        "surroundings-056/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-056/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6636576,
+      "files": [
+        "surroundings-057/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-057/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6031196,
+      "files": [
+        "surroundings-058/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-058/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6356052,
+      "files": [
+        "surroundings-059/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-059/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032348,
+      "files": [
+        "surroundings-060/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-060/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6365124,
+      "files": [
+        "surroundings-061/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-061/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6627788,
+      "files": [
+        "surroundings-062/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-062/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9228780,
+      "files": [
+        "surroundings-063/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-063/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12145936,
+      "files": [
+        "surroundings-064/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-064/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6612004,
+      "files": [
+        "surroundings-065/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-065/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6379760,
+      "files": [
+        "surroundings-066/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-066/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6056060,
+      "files": [
+        "surroundings-067/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-067/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398004,
+      "files": [
+        "surroundings-068/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-068/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6339632,
+      "files": [
+        "surroundings-069/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-069/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030908,
+      "files": [
+        "surroundings-070/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-070/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6369200,
+      "files": [
+        "surroundings-071/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-071/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6615300,
+      "files": [
+        "surroundings-072/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-072/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6035852,
+      "files": [
+        "surroundings-073/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-073/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6355864,
+      "files": [
+        "surroundings-074/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-074/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6645496,
+      "files": [
+        "surroundings-075/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-075/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029468,
+      "files": [
+        "surroundings-076/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-076/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398764,
+      "files": [
+        "surroundings-077/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-077/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6340116,
+      "files": [
+        "surroundings-078/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-078/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6388596,
+      "files": [
+        "surroundings-079/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-079/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6356628,
+      "files": [
+        "surroundings-080/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-080/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 8945976,
+      "files": [
+        "surroundings-081/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-081/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6587236,
+      "files": [
+        "surroundings-082/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-082/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396848,
+      "files": [
+        "surroundings-083/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-083/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6041228,
+      "files": [
+        "surroundings-084/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-084/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6633264,
+      "files": [
+        "surroundings-085/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-085/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6356908,
+      "files": [
+        "surroundings-086/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-086/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 13042504,
+      "files": [
+        "surroundings-087/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-087/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6604144,
+      "files": [
+        "surroundings-088/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-088/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6393920,
+      "files": [
+        "surroundings-089/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-089/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025628,
+      "files": [
+        "surroundings-090/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-090/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6648588,
+      "files": [
+        "surroundings-091/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-091/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6341936,
+      "files": [
+        "surroundings-092/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-092/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6031912,
+      "files": [
+        "surroundings-093/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-093/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6363344,
+      "files": [
+        "surroundings-094/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-094/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6369580,
+      "files": [
+        "surroundings-095/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-095/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6048376,
+      "files": [
+        "surroundings-096/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-096/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6397228,
+      "files": [
+        "surroundings-097/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-097/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6337328,
+      "files": [
+        "surroundings-098/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-098/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028404,
+      "files": [
+        "surroundings-099/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-099/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6383500,
+      "files": [
+        "surroundings-100/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-100/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605620,
+      "files": [
+        "surroundings-101/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-101/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6048228,
+      "files": [
+        "surroundings-102/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-102/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6400736,
+      "files": [
+        "surroundings-103/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-103/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6590196,
+      "files": [
+        "surroundings-104/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-104/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029080,
+      "files": [
+        "surroundings-105/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-105/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6625756,
+      "files": [
+        "surroundings-106/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-106/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6373232,
+      "files": [
+        "surroundings-107/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-107/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026536,
+      "files": [
+        "surroundings-108/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-108/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6606640,
+      "files": [
+        "surroundings-109/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-109/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6387488,
+      "files": [
+        "surroundings-110/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-110/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6048184,
+      "files": [
+        "surroundings-111/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-111/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399296,
+      "files": [
+        "surroundings-112/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-112/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6586588,
+      "files": [
+        "surroundings-113/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-113/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027212,
+      "files": [
+        "surroundings-114/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-114/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6366992,
+      "files": [
+        "surroundings-115/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-115/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6374096,
+      "files": [
+        "surroundings-116/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-116/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036376,
+      "files": [
+        "surroundings-117/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-117/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6386860,
+      "files": [
+        "surroundings-118/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-118/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6349712,
+      "files": [
+        "surroundings-119/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-119/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12444696,
+      "files": [
+        "surroundings-120/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-120/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6347024,
+      "files": [
+        "surroundings-121/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-121/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6393204,
+      "files": [
+        "surroundings-122/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-122/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6018860,
+      "files": [
+        "surroundings-123/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-123/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6595544,
+      "files": [
+        "surroundings-124/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-124/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6406448,
+      "files": [
+        "surroundings-125/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-125/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025912,
+      "files": [
+        "surroundings-126/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-126/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6599684,
+      "files": [
+        "surroundings-127/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-127/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032632,
+      "files": [
+        "surroundings-128/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-128/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6336664,
+      "files": [
+        "surroundings-129/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-129/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6411152,
+      "files": [
+        "surroundings-130/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-130/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030232,
+      "files": [
+        "surroundings-131/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-131/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6401976,
+      "files": [
+        "surroundings-132/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-132/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6341312,
+      "files": [
+        "surroundings-133/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-133/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11345972,
+      "files": [
+        "surroundings-134/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-134/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6388596,
+      "files": [
+        "surroundings-135/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-135/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605152,
+      "files": [
+        "surroundings-136/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-136/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029276,
+      "files": [
+        "surroundings-137/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-137/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6639212,
+      "files": [
+        "surroundings-138/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-138/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6352784,
+      "files": [
+        "surroundings-139/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-139/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398716,
+      "files": [
+        "surroundings-140/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-140/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032540,
+      "files": [
+        "surroundings-141/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-141/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6604116,
+      "files": [
+        "surroundings-142/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-142/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6401412,
+      "files": [
+        "surroundings-143/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-143/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6057108,
+      "files": [
+        "surroundings-144/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-144/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6376108,
+      "files": [
+        "surroundings-145/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-145/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6357296,
+      "files": [
+        "surroundings-146/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-146/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032732,
+      "files": [
+        "surroundings-147/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-147/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6375348,
+      "files": [
+        "surroundings-148/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-148/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608132,
+      "files": [
+        "surroundings-149/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-149/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029660,
+      "files": [
+        "surroundings-150/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-150/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6607956,
+      "files": [
+        "surroundings-151/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-151/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6376496,
+      "files": [
+        "surroundings-152/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-152/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6047268,
+      "files": [
+        "surroundings-153/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-153/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396988,
+      "files": [
+        "surroundings-154/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-154/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12362744,
+      "files": [
+        "surroundings-155/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-155/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6406304,
+      "files": [
+        "surroundings-156/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-156/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027400,
+      "files": [
+        "surroundings-157/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-157/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396660,
+      "files": [
+        "surroundings-158/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-158/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6342896,
+      "files": [
+        "surroundings-159/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-159/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6641612,
+      "files": [
+        "surroundings-160/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-160/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11956692,
+      "files": [
+        "surroundings-161/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-161/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036756,
+      "files": [
+        "surroundings-162/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-162/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6393388,
+      "files": [
+        "surroundings-163/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-163/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6348264,
+      "files": [
+        "surroundings-164/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-164/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11184292,
+      "files": [
+        "surroundings-165/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-165/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6601268,
+      "files": [
+        "surroundings-166/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-166/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6394304,
+      "files": [
+        "surroundings-167/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-167/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6053752,
+      "files": [
+        "surroundings-168/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-168/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6333632,
+      "files": [
+        "surroundings-169/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-169/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9445944,
+      "files": [
+        "surroundings-170/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-170/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 10917804,
+      "files": [
+        "surroundings-171/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-171/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608816,
+      "files": [
+        "surroundings-172/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-172/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6384760,
+      "files": [
+        "surroundings-173/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-173/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6046216,
+      "files": [
+        "surroundings-174/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-174/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6404340,
+      "files": [
+        "surroundings-175/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-175/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6585592,
+      "files": [
+        "surroundings-176/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-176/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6051260,
+      "files": [
+        "surroundings-177/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-177/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6637484,
+      "files": [
+        "surroundings-178/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-178/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6349520,
+      "files": [
+        "surroundings-179/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-179/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6033984,
+      "files": [
+        "surroundings-180/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-180/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6602800,
+      "files": [
+        "surroundings-181/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-181/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6389220,
+      "files": [
+        "surroundings-182/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-182/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12083312,
+      "files": [
+        "surroundings-183/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-183/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6402848,
+      "files": [
+        "surroundings-184/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-184/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6337096,
+      "files": [
+        "surroundings-185/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-185/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036856,
+      "files": [
+        "surroundings-186/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-186/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6390704,
+      "files": [
+        "surroundings-187/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-187/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6357296,
+      "files": [
+        "surroundings-188/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-188/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027024,
+      "files": [
+        "surroundings-189/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-189/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608416,
+      "files": [
+        "surroundings-190/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-190/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6391424,
+      "files": [
+        "surroundings-191/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-191/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11296676,
+      "files": [
+        "surroundings-192/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-192/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6655708,
+      "files": [
+        "surroundings-193/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-193/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6343856,
+      "files": [
+        "surroundings-194/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-194/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6041228,
+      "files": [
+        "surroundings-195/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-195/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6643576,
+      "files": [
+        "surroundings-196/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-196/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6347600,
+      "files": [
+        "surroundings-197/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-197/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027068,
+      "files": [
+        "surroundings-198/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-198/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6646072,
+      "files": [
+        "surroundings-199/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-199/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6343472,
+      "files": [
+        "surroundings-200/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-200/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6049284,
+      "files": [
+        "surroundings-201/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-201/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6397756,
+      "files": [
+        "surroundings-202/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-202/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9614156,
+      "files": [
+        "surroundings-203/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-203/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11219928,
+      "files": [
+        "surroundings-204/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-204/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6406168,
+      "files": [
+        "surroundings-205/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-205/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6342040,
+      "files": [
+        "surroundings-206/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-206/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 13976768,
+      "files": [
+        "surroundings-207/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-207/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6385808,
+      "files": [
+        "surroundings-208/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-208/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6599360,
+      "files": [
+        "surroundings-209/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-209/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6058652,
+      "files": [
+        "surroundings-210/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-210/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6609596,
+      "files": [
+        "surroundings-211/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-211/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6380336,
+      "files": [
+        "surroundings-212/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-212/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6037192,
+      "files": [
+        "surroundings-213/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-213/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6644540,
+      "files": [
+        "surroundings-214/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-214/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6338572,
+      "files": [
+        "surroundings-215/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-215/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028020,
+      "files": [
+        "surroundings-216/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-216/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6648888,
+      "files": [
+        "surroundings-217/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-217/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6345816,
+      "files": [
+        "surroundings-218/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-218/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6023952,
+      "files": [
+        "surroundings-219/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-219/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6344772,
+      "files": [
+        "surroundings-220/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-220/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6395696,
+      "files": [
+        "surroundings-221/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-221/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025912,
+      "files": [
+        "surroundings-222/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-222/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6402272,
+      "files": [
+        "surroundings-223/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-223/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6609896,
+      "files": [
+        "surroundings-224/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-224/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6059508,
+      "files": [
+        "surroundings-225/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-225/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6589612,
+      "files": [
+        "surroundings-226/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-226/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9329892,
+      "files": [
+        "surroundings-227/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-227/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 14303240,
+      "files": [
+        "surroundings-228/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-228/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6652620,
+      "files": [
+        "surroundings-229/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-229/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6335600,
+      "files": [
+        "surroundings-230/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-230/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6046164,
+      "files": [
+        "surroundings-231/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-231/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6600824,
+      "files": [
+        "surroundings-232/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-232/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6401496,
+      "files": [
+        "surroundings-233/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-233/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6033116,
+      "files": [
+        "surroundings-234/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-234/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6644776,
+      "files": [
+        "surroundings-235/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-235/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6343376,
+      "files": [
+        "surroundings-236/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-236/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027348,
+      "files": [
+        "surroundings-237/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-237/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6596492,
+      "files": [
+        "surroundings-238/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-238/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6397660,
+      "files": [
+        "surroundings-239/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-239/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6039104,
+      "files": [
+        "surroundings-240/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-240/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608468,
+      "files": [
+        "surroundings-241/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-241/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6392372,
+      "files": [
+        "surroundings-242/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-242/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6061528,
+      "files": [
+        "surroundings-243/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-243/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6338816,
+      "files": [
+        "surroundings-244/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-244/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6390560,
+      "files": [
+        "surroundings-245/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-245/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6034932,
+      "files": [
+        "surroundings-246/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-246/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399192,
+      "files": [
+        "surroundings-247/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-247/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 371852068,
+      "files": [
+        "surroundings-248/mesh-000.bin",
+        "surroundings-248/mesh-001.bin",
+        "surroundings-248/mesh-002.bin",
+        "surroundings-248/mesh-003.bin",
+        "surroundings-248/mesh-004.bin",
+        "surroundings-248/mesh-005.bin",
+        "surroundings-248/mesh-006.bin",
+        "surroundings-248/mesh-007.bin",
+        "surroundings-248/mesh-008.bin",
+        "surroundings-248/mesh-009.bin",
+        "surroundings-248/mesh-010.bin",
+        "surroundings-248/mesh-011.bin",
+        "surroundings-248/mesh-012.bin",
+        "surroundings-248/mesh-013.bin",
+        "surroundings-248/mesh-014.bin",
+        "surroundings-248/mesh-015.bin",
+        "surroundings-248/mesh-016.bin",
+        "surroundings-248/mesh-017.bin",
+        "surroundings-248/mesh-018.bin",
+        "surroundings-248/mesh-019.bin",
+        "surroundings-248/mesh-020.bin",
+        "surroundings-248/mesh-021.bin",
+        "surroundings-248/mesh-022.bin"
+      ],
+      "maps": {
+        "campus": "surroundings-248/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 15172480,
+      "files": [
+        "surroundings-249/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-249/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6604400,
+      "files": [
+        "surroundings-250/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-250/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6389356,
+      "files": [
+        "surroundings-251/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-251/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6058552,
+      "files": [
+        "surroundings-252/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-252/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398576,
+      "files": [
+        "surroundings-253/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-253/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6341644,
+      "files": [
+        "surroundings-254/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-254/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6054336,
+      "files": [
+        "surroundings-255/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-255/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6644012,
+      "files": [
+        "surroundings-256/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-256/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6345208,
+      "files": [
+        "surroundings-257/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-257/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025772,
+      "files": [
+        "surroundings-258/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-258/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6625720,
+      "files": [
+        "surroundings-259/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-259/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6378708,
+      "files": [
+        "surroundings-260/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-260/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6056824,
+      "files": [
+        "surroundings-261/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-261/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6357972,
+      "files": [
+        "surroundings-262/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-262/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6379044,
+      "files": [
+        "surroundings-263/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-263/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6340400,
+      "files": [
+        "surroundings-264/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-264/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6041852,
+      "files": [
+        "surroundings-265/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-265/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6341312,
+      "files": [
+        "surroundings-266/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-266/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6408560,
+      "files": [
+        "surroundings-267/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-267/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6037048,
+      "files": [
+        "surroundings-268/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-268/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6332044,
+      "files": [
+        "surroundings-269/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-269/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6033016,
+      "files": [
+        "surroundings-270/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-270/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6616308,
+      "files": [
+        "surroundings-271/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-271/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6373332,
+      "files": [
+        "surroundings-272/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-272/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 15073788,
+      "files": [
+        "surroundings-273/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-273/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6374672,
+      "files": [
+        "surroundings-274/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-274/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6354612,
+      "files": [
+        "surroundings-275/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-275/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036952,
+      "files": [
+        "surroundings-276/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-276/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6334692,
+      "files": [
+        "surroundings-277/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-277/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6405296,
+      "files": [
+        "surroundings-278/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-278/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025192,
+      "files": [
+        "surroundings-279/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-279/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6600384,
+      "files": [
+        "surroundings-280/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-280/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6403516,
+      "files": [
+        "surroundings-281/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-281/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6035512,
+      "files": [
+        "surroundings-282/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-282/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6604000,
+      "files": [
+        "surroundings-283/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-283/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6384852,
+      "files": [
+        "surroundings-284/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-284/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6038392,
+      "files": [
+        "surroundings-285/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-285/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6407984,
+      "files": [
+        "surroundings-286/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-286/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6334836,
+      "files": [
+        "surroundings-287/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-287/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6055004,
+      "files": [
+        "surroundings-288/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-288/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6644124,
+      "files": [
+        "surroundings-289/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-289/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6397332,
+      "files": [
+        "surroundings-290/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-290/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026348,
+      "files": [
+        "surroundings-291/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-291/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6342224,
+      "files": [
+        "surroundings-292/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-292/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399156,
+      "files": [
+        "surroundings-293/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-293/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6016940,
+      "files": [
+        "surroundings-294/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-294/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6347408,
+      "files": [
+        "surroundings-295/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-295/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6644964,
+      "files": [
+        "surroundings-296/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-296/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6033880,
+      "files": [
+        "surroundings-297/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-297/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6594164,
+      "files": [
+        "surroundings-298/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-298/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399580,
+      "files": [
+        "surroundings-299/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-299/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6048756,
+      "files": [
+        "surroundings-300/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-300/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398716,
+      "files": [
+        "surroundings-301/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-301/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026680,
+      "files": [
+        "surroundings-302/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-302/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6660620,
+      "files": [
+        "surroundings-303/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-303/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6601076,
+      "files": [
+        "surroundings-304/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-304/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036380,
+      "files": [
+        "surroundings-305/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-305/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6333924,
+      "files": [
+        "surroundings-306/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-306/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6646892,
+      "files": [
+        "surroundings-307/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-307/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11976292,
+      "files": [
+        "surroundings-308/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-308/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11742524,
+      "files": [
+        "surroundings-309/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-309/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608456,
+      "files": [
+        "surroundings-310/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-310/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396416,
+      "files": [
+        "surroundings-311/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-311/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6603160,
+      "files": [
+        "surroundings-312/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-312/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6019052,
+      "files": [
+        "surroundings-313/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-313/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6644576,
+      "files": [
+        "surroundings-314/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-314/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6345780,
+      "files": [
+        "surroundings-315/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-315/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9061000,
+      "files": [
+        "surroundings-316/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-316/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9502168,
+      "files": [
+        "surroundings-317/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-317/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 11777356,
+      "files": [
+        "surroundings-318/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-318/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6332672,
+      "files": [
+        "surroundings-319/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-319/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6649352,
+      "files": [
+        "surroundings-320/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-320/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036856,
+      "files": [
+        "surroundings-321/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-321/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6384080,
+      "files": [
+        "surroundings-322/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-322/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026060,
+      "files": [
+        "surroundings-323/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-323/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6603240,
+      "files": [
+        "surroundings-324/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-324/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6376880,
+      "files": [
+        "surroundings-325/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-325/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 7775080,
+      "files": [
+        "surroundings-326/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-326/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6048276,
+      "files": [
+        "surroundings-327/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-327/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6634980,
+      "files": [
+        "surroundings-328/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-328/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6355280,
+      "files": [
+        "surroundings-329/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-329/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029276,
+      "files": [
+        "surroundings-330/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-330/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6604724,
+      "files": [
+        "surroundings-331/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-331/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6628596,
+      "files": [
+        "surroundings-332/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-332/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028116,
+      "files": [
+        "surroundings-333/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-333/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6594752,
+      "files": [
+        "surroundings-334/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-334/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399484,
+      "files": [
+        "surroundings-335/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-335/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027980,
+      "files": [
+        "surroundings-336/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-336/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6598952,
+      "files": [
+        "surroundings-337/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-337/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6401412,
+      "files": [
+        "surroundings-338/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-338/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6037524,
+      "files": [
+        "surroundings-339/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-339/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6615904,
+      "files": [
+        "surroundings-340/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-340/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6378412,
+      "files": [
+        "surroundings-341/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-341/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6047032,
+      "files": [
+        "surroundings-342/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-342/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6355184,
+      "files": [
+        "surroundings-343/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-343/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6632048,
+      "files": [
+        "surroundings-344/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-344/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026728,
+      "files": [
+        "surroundings-345/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-345/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608076,
+      "files": [
+        "surroundings-346/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-346/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6394972,
+      "files": [
+        "surroundings-347/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-347/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6048944,
+      "files": [
+        "surroundings-348/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-348/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6333288,
+      "files": [
+        "surroundings-349/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-349/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398468,
+      "files": [
+        "surroundings-350/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-350/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6034264,
+      "files": [
+        "surroundings-351/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-351/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6647616,
+      "files": [
+        "surroundings-352/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-352/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6342608,
+      "files": [
+        "surroundings-353/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-353/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6061052,
+      "files": [
+        "surroundings-354/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-354/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6335500,
+      "files": [
+        "surroundings-355/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-355/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6404144,
+      "files": [
+        "surroundings-356/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-356/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029272,
+      "files": [
+        "surroundings-357/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-357/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6609816,
+      "files": [
+        "surroundings-358/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-358/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 8073352,
+      "files": [
+        "surroundings-359/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-359/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12262516,
+      "files": [
+        "surroundings-360/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-360/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6654696,
+      "files": [
+        "surroundings-361/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-361/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6345488,
+      "files": [
+        "surroundings-362/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-362/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6033788,
+      "files": [
+        "surroundings-363/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-363/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6613484,
+      "files": [
+        "surroundings-364/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-364/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6388112,
+      "files": [
+        "surroundings-365/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-365/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032440,
+      "files": [
+        "surroundings-366/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-366/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608604,
+      "files": [
+        "surroundings-367/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-367/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6393872,
+      "files": [
+        "surroundings-368/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-368/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6053848,
+      "files": [
+        "surroundings-369/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-369/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6359988,
+      "files": [
+        "surroundings-370/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-370/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6374004,
+      "files": [
+        "surroundings-371/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-371/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036328,
+      "files": [
+        "surroundings-372/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-372/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6610972,
+      "files": [
+        "surroundings-373/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-373/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 9452000,
+      "files": [
+        "surroundings-374/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-374/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12658360,
+      "files": [
+        "surroundings-375/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-375/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6060568,
+      "files": [
+        "surroundings-376/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-376/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6407792,
+      "files": [
+        "surroundings-377/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-377/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026676,
+      "files": [
+        "surroundings-378/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-378/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6356484,
+      "files": [
+        "surroundings-379/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-379/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6639172,
+      "files": [
+        "surroundings-380/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-380/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030720,
+      "files": [
+        "surroundings-381/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-381/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6633920,
+      "files": [
+        "surroundings-382/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-382/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6354708,
+      "files": [
+        "surroundings-383/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-383/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6021980,
+      "files": [
+        "surroundings-384/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-384/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6599112,
+      "files": [
+        "surroundings-385/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-385/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6395460,
+      "files": [
+        "surroundings-386/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-386/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6034556,
+      "files": [
+        "surroundings-387/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-387/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6609144,
+      "files": [
+        "surroundings-388/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-388/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6390608,
+      "files": [
+        "surroundings-389/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-389/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025956,
+      "files": [
+        "surroundings-390/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-390/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6597856,
+      "files": [
+        "surroundings-391/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-391/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6403424,
+      "files": [
+        "surroundings-392/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-392/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 7794048,
+      "files": [
+        "surroundings-393/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-393/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026972,
+      "files": [
+        "surroundings-394/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-394/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6350628,
+      "files": [
+        "surroundings-395/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-395/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6634416,
+      "files": [
+        "surroundings-396/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-396/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036088,
+      "files": [
+        "surroundings-397/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-397/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605528,
+      "files": [
+        "surroundings-398/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-398/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6380524,
+      "files": [
+        "surroundings-399/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-399/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036080,
+      "files": [
+        "surroundings-400/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-400/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6620736,
+      "files": [
+        "surroundings-401/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-401/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6372552,
+      "files": [
+        "surroundings-402/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-402/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6058360,
+      "files": [
+        "surroundings-403/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-403/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6597520,
+      "files": [
+        "surroundings-404/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-404/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6384076,
+      "files": [
+        "surroundings-405/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-405/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6035416,
+      "files": [
+        "surroundings-406/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-406/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6339496,
+      "files": [
+        "surroundings-407/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-407/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6643872,
+      "files": [
+        "surroundings-408/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-408/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6026248,
+      "files": [
+        "surroundings-409/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-409/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396944,
+      "files": [
+        "surroundings-410/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-410/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6339916,
+      "files": [
+        "surroundings-411/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-411/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6045784,
+      "files": [
+        "surroundings-412/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-412/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6601712,
+      "files": [
+        "surroundings-413/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-413/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6392868,
+      "files": [
+        "surroundings-414/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-414/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030232,
+      "files": [
+        "surroundings-415/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-415/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6606416,
+      "files": [
+        "surroundings-416/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-416/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6629348,
+      "files": [
+        "surroundings-417/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-417/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6053176,
+      "files": [
+        "surroundings-418/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-418/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398860,
+      "files": [
+        "surroundings-419/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-419/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6585732,
+      "files": [
+        "surroundings-420/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-420/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6024236,
+      "files": [
+        "surroundings-421/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-421/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6397952,
+      "files": [
+        "surroundings-422/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-422/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6589884,
+      "files": [
+        "surroundings-423/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-423/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608020,
+      "files": [
+        "surroundings-424/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-424/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6387916,
+      "files": [
+        "surroundings-425/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-425/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6030712,
+      "files": [
+        "surroundings-426/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-426/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6597568,
+      "files": [
+        "surroundings-427/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-427/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6405008,
+      "files": [
+        "surroundings-428/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-428/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 10766876,
+      "files": [
+        "surroundings-429/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-429/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6603028,
+      "files": [
+        "surroundings-430/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-430/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6392096,
+      "files": [
+        "surroundings-431/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-431/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028700,
+      "files": [
+        "surroundings-432/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-432/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6401600,
+      "files": [
+        "surroundings-433/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-433/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6597544,
+      "files": [
+        "surroundings-434/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-434/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6046020,
+      "files": [
+        "surroundings-435/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-435/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6358828,
+      "files": [
+        "surroundings-436/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-436/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6362956,
+      "files": [
+        "surroundings-437/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-437/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6037240,
+      "files": [
+        "surroundings-438/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-438/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6353168,
+      "files": [
+        "surroundings-439/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-439/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 12350888,
+      "files": [
+        "surroundings-440/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-440/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6588712,
+      "files": [
+        "surroundings-441/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-441/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6394112,
+      "files": [
+        "surroundings-442/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-442/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028408,
+      "files": [
+        "surroundings-443/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-443/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605684,
+      "files": [
+        "surroundings-444/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-444/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6391232,
+      "files": [
+        "surroundings-445/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-445/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025384,
+      "files": [
+        "surroundings-446/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-446/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6647332,
+      "files": [
+        "surroundings-447/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-447/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6332144,
+      "files": [
+        "surroundings-448/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-448/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 13101196,
+      "files": [
+        "surroundings-449/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-449/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605168,
+      "files": [
+        "surroundings-450/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-450/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6392096,
+      "files": [
+        "surroundings-451/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-451/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6033592,
+      "files": [
+        "surroundings-452/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-452/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6613508,
+      "files": [
+        "surroundings-453/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-453/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6386960,
+      "files": [
+        "surroundings-454/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-454/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6036860,
+      "files": [
+        "surroundings-455/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-455/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6602080,
+      "files": [
+        "surroundings-456/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-456/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6394780,
+      "files": [
+        "surroundings-457/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-457/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029464,
+      "files": [
+        "surroundings-458/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-458/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6593336,
+      "files": [
+        "surroundings-459/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-459/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6407172,
+      "files": [
+        "surroundings-460/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-460/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6057592,
+      "files": [
+        "surroundings-461/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-461/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6380052,
+      "files": [
+        "surroundings-462/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-462/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6353940,
+      "files": [
+        "surroundings-463/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-463/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6028120,
+      "files": [
+        "surroundings-464/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-464/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6608612,
+      "files": [
+        "surroundings-465/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-465/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6382544,
+      "files": [
+        "surroundings-466/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-466/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 13048948,
+      "files": [
+        "surroundings-467/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-467/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6588184,
+      "files": [
+        "surroundings-468/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-468/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6385860,
+      "files": [
+        "surroundings-469/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-469/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6029948,
+      "files": [
+        "surroundings-470/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-470/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6642956,
+      "files": [
+        "surroundings-471/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-471/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6345300,
+      "files": [
+        "surroundings-472/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-472/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6032256,
+      "files": [
+        "surroundings-473/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-473/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6592684,
+      "files": [
+        "surroundings-474/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-474/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6394116,
+      "files": [
+        "surroundings-475/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-475/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 13338012,
+      "files": [
+        "surroundings-476/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-476/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6594272,
+      "files": [
+        "surroundings-477/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-477/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6393144,
+      "files": [
+        "surroundings-478/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-478/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6049916,
+      "files": [
+        "surroundings-479/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-479/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6614792,
+      "files": [
+        "surroundings-480/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-480/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6385424,
+      "files": [
+        "surroundings-481/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-481/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6044440,
+      "files": [
+        "surroundings-482/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-482/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6596760,
+      "files": [
+        "surroundings-483/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-483/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6391232,
+      "files": [
+        "surroundings-484/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-484/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6025912,
+      "files": [
+        "surroundings-485/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-485/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6403804,
+      "files": [
+        "surroundings-486/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-486/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6604816,
+      "files": [
+        "surroundings-487/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-487/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6037816,
+      "files": [
+        "surroundings-488/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-488/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6409184,
+      "files": [
+        "surroundings-489/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-489/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6338628,
+      "files": [
+        "surroundings-490/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-490/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 13030304,
+      "files": [
+        "surroundings-491/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-491/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6398480,
+      "files": [
+        "surroundings-492/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-492/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6348276,
+      "files": [
+        "surroundings-493/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-493/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6035896,
+      "files": [
+        "surroundings-494/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-494/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6643076,
+      "files": [
+        "surroundings-495/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-495/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6337424,
+      "files": [
+        "surroundings-496/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-496/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6035612,
+      "files": [
+        "surroundings-497/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-497/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6396844,
+      "files": [
+        "surroundings-498/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-498/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6348656,
+      "files": [
+        "surroundings-499/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-499/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6031388,
+      "files": [
+        "surroundings-500/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-500/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6371220,
+      "files": [
+        "surroundings-501/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-501/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6027640,
+      "files": [
+        "surroundings-502/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-502/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6638560,
+      "files": [
+        "surroundings-503/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-503/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6353556,
+      "files": [
+        "surroundings-504/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-504/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6334352,
+      "files": [
+        "surroundings-505/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-505/campus.png"
+      }
+    },
+    {
+      "uv": 4,
+      "bytes": 8959088,
+      "files": [
+        "surroundings-506/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-506/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6605396,
+      "files": [
+        "surroundings-507/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-507/campus.png"
+      }
+    },
+    {
+      "uv": 2,
+      "bytes": 6399012,
+      "files": [
+        "surroundings-508/model.glb"
+      ],
+      "maps": {
+        "campus": "surroundings-508/campus.png"
+      }
+    }
+  ],
+  "sky": "sky.png",
+  "base": "models/lighting/f1b60301dac80fb0/"
+}
