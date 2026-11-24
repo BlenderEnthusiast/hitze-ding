@@ -13,5 +13,9 @@ if not defined stratum_exe (
 set "stratum_result=%errorlevel%"
 if not "%stratum_result%"=="0" echo Bake failed. The previous lighting index is still in place.
 if "%stratum_result%"=="0" echo Upload the lighting.json and the lighting folder printed above.
+if "%stratum_result%"=="0" if exist "%~dp0Optimize-Campus.cmd" (
+  call "%~dp0Optimize-Campus.cmd" --after-bake %*
+  if errorlevel 1 echo Lighting is ready. Run Optimize-Campus.cmd to finish the fast campus overview.
+)
 pause
 exit /b %stratum_result%

@@ -171,6 +171,7 @@ export class Viewer {
     const root=await loadBakedScene(this.loader,spec,this.daylight.base,signal);
     try {
       signal.throwIfAborted();
+      if(spec.lighting==='scene')return root;
       const surface=new SurfaceDaylight(root,spec,this.daylight,this.lightTextureLoader,()=>{this.dirty=true;});
       root.userData.daylight=surface;
       // The user may change floors while the original atlas is downloading.
@@ -183,34 +184,53 @@ export class Viewer {
     } catch(error) {dispose(root);throw error;}
   }
   hideSurroundings() {
+    if(this.landscape?.userData.overviewReady) {
+      this.landscape.visible=false;this.dirty=true;return;
+    }
     this.landscapeRequest?.abort();
     if(this.landscape) {
       this.scene.remove(this.landscape);dispose(this.landscape);this.landscape=null;this.dirty=true;
     }
   }
   async loadSurroundings() {
-    const pages=this.daylight?.surroundings;
-    if(!pages?.length||this.landscape||this.landscapeRequest||daylightMode(this.scope)!=='campus'||
+    const overview=this.daylight?.overview;
+    const pages=overview ? [overview] : this.daylight?.surroundings;
+    if(!pages?.length||daylightMode(this.scope)!=='campus'||
        this.geometryWarnings.has('surroundings'))return;
+    if(this.landscape) {
+      if(!this.landscape.visible && this.landscape.userData.overviewReady) {
+        this.landscape.visible=true;this.dirty=true;
+      }
+      return;
+    }
+    if(this.landscapeRequest)return;
     const request=new AbortController();this.landscapeRequest=request;
     const group=new THREE.Group();this.landscape=group;this.scene.add(group);
     try {
       for(const [i,spec] of pages.entries()) {
-        this.status(`Loading campus surroundings (${i+1}/${pages.length})…`);
+        this.status(overview ? 'Loading campus landscape…' : `Loading campus surroundings (${i+1}/${pages.length})…`);
         const tile=await this.bakedRoot(spec,request.signal,()=>'campus');
         if(request.signal.aborted||daylightMode(this.scope)!=='campus'){dispose(tile);return;}
         group.add(tile);tile.updateMatrixWorld(true);this.dirty=true;
       }
+      if(overview)group.userData.overviewReady=true;
     } catch(error) {
-      if(!request.signal.aborted)this.warnGeometry('surroundings','Could not load surroundings: '+error.message);
+      if(!request.signal.aborted) {
+        if(overview) {
+          this.scene.remove(group);dispose(group);this.landscape=null;
+          this.daylight.overview=null;
+          console.warn('Compact campus unavailable, loading original surroundings:',error);
+        } else this.warnGeometry('surroundings','Could not load surroundings: '+error.message);
+      }
     } finally {
       this.landscapeRequest=null;
       if(!this.pending.size)this.idleStatus();
-      if(request.signal.aborted)this.loadMore();
+      if(request.signal.aborted||(overview&&!this.daylight.overview))this.loadMore();
     }
   }
   async loadMore() {
     if(!this.daylightReady)return;
+    if(this.daylight?.overview && daylightMode(this.scope)==='campus')this.loadSurroundings();
     const candidates=this.floors.concat(Array.from(this.exteriors?.values()||[]));
     const next=candidates.find(f=>this.geometryWanted(f.key)&&!this.loaded.has(f.key)&&!this.pending.has(f.key)&&!this.failures.has(f.key));
     if(!next) {
@@ -391,5 +411,10 @@ export class Viewer {
 
     }
     this.renderer.render(this.scene,this.camera);this.dirty=false;
+    if(!this.campusReadyMeasured && this.landscape?.userData.overviewReady && this.landscape.visible &&
+       daylightMode(this.scope)==='campus' && !this.pending.size && !this.failures.size) {
+      this.campusReadyMeasured=true;
+      performance.mark('stratum-campus-ready');
+    }
   }
 }

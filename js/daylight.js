@@ -13,12 +13,25 @@ export async function readDaylight(root) {
   if (index.version !== 1 || !index.base || !index.floors || !(index.range > 0)) {
     throw new Error('Invalid daylight index');
   }
-  return {...index, base: new URL(index.base, root)};
+  const base = new URL(index.base, root);
+  let overview = null;
+  if (index.surroundings?.length) {
+    try {
+      const response = await fetch(new URL('overview.json', base), {cache: 'no-cache'});
+      if (response.ok) {
+        const spec = await response.json();
+        if (spec.version === 1 && spec.sourceBase === index.base && spec.compression === 'meshopt' &&
+            spec.files?.length === 1 && (spec.lighting === 'scene' || spec.maps?.campus) &&
+            spec.bytes > 0 && spec.uv === 8) overview = spec;
+      }
+    } catch { /* Older bakes and static hosts without an overview use the original pages. */ }
+  }
+  return {...index, base, overview};
 }
 
 // The baker embeds all glTF textures. Large GLBs travel in ordinary static
 // files and are assembled directly in one buffer before glTF parsing.
-export async function loadBakedScene(loader, spec, base, signal) {
+async function readBakedBytes(spec, base, signal) {
   const read = async file => {
     const url = new URL(file, base);
     const response = await fetch(url, {signal});
@@ -28,6 +41,14 @@ export async function loadBakedScene(loader, spec, base, signal) {
   let bytes;
   if (spec.files.length === 1) {
     bytes = await read(spec.files[0]);
+    if (spec.transport === 'gzip') {
+      // Hosts may serve .gz as a file or transparently decode it with Content-Encoding.
+      const header = new Uint8Array(bytes, 0, Math.min(2, bytes.byteLength));
+      if (header[0] === 0x1f && header[1] === 0x8b) {
+        const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'), {signal});
+        bytes = await new Response(stream).arrayBuffer();
+      }
+    }
   } else {
     const joined = new Uint8Array(spec.bytes);
     let offset = 0;
@@ -40,6 +61,15 @@ export async function loadBakedScene(loader, spec, base, signal) {
     bytes = joined.buffer;
   }
   if (bytes.byteLength !== spec.bytes) throw new Error('Unexpected daylight geometry length');
+  return bytes;
+}
+
+export async function loadBakedScene(loader, spec, base, signal) {
+  const [bytes, decoder] = await Promise.all([
+    readBakedBytes(spec, base, signal),
+    spec.compression === 'meshopt' ? import('../vendor/meshoptimizer/meshopt_decoder.mjs') : null,
+  ]);
+  if (decoder) loader.setMeshoptDecoder(decoder.MeshoptDecoder);
   signal?.throwIfAborted();
   return (await loader.parseAsync(bytes, base.href)).scene;
 }
@@ -107,6 +137,7 @@ export class SurfaceDaylight {
     this.materials = new Set();
     root.traverse(obj => {
       for (const m of [].concat(obj.material || [])) {
+        if (spec.compression === 'meshopt' && m.userData?.stratumSceneLight) continue;
         if (m.isMeshStandardMaterial || m.isMeshBasicMaterial) this.materials.add(m);
       }
     });
@@ -120,14 +151,22 @@ export class SurfaceDaylight {
 
   async show(mode) {
     if (this.closed || !this.materials.size) return;
-    const file = this.spec.maps[mode];
+    const original = this.spec.maps[mode];
+    const file = (mode === 'campus' && this.index.overview?.campusMaps?.[original]) || original;
     this.wanted = file;
     if (file === this.applied) return;
     if (!this.textures.has(file)) {
-      const pending = this.loader.loadAsync(new URL(file, this.index.base).href).then(t => {
+      const load = name => this.loader.loadAsync(new URL(name, this.index.base).href);
+      const image = file === original ? load(file) : load(file).catch(() => load(original));
+      const pending = image.then(t => {
         t.flipY = false;
         t.colorSpace = THREE.SRGBColorSpace;
         t.channel = this.spec.uv;
+        // Keep neighboring cells of the packed landscape atlas out of the filter footprint.
+        if (this.spec.compression === 'meshopt') {
+          t.generateMipmaps = false;
+          t.minFilter = THREE.LinearFilter;
+        }
         if (this.closed) t.dispose();
         else this.resident.add(t);
         return t;

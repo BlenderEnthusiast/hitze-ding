@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "bytes": 17135956,
+  "transferBytes": 11720788,
+  "transport": "gzip",
+  "files": [
+    "overview-27365eb30caae59a.glb.gz"
+  ],
+  "uv": 8,
+  "maps": {},
+  "lighting": "scene",
+  "bakedPages": 0,
+  "compression": "meshopt",
+  "sourceBase": "models/lighting/f1b60301dac80fb0/",
+  "sourceTriangles": 31208043,
+  "triangles": 898462,
+  "campusMaps": {
+    "floor-000/campus.png": "overview-light-271db1366416165a.webp",
+    "floor-001/campus.png": "overview-light-0b2a18a20514e4ad.webp",
+    "floor-002/campus.png": "overview-light-517fc6d6182f30a4.webp",
+    "floor-003/campus.png": "overview-light-48a4522a170516e7.webp",
+    "floor-004/campus.png": "overview-light-42d03c95bc83750c.webp",
+    "floor-005/campus.png": "overview-light-7ab28bfaa05d3989.webp",
+    "floor-006/campus.png": "overview-light-e93b1919e5a4baa5.webp",
+    "floor-007/campus.png": "overview-light-b44b6edcf19da8be.webp",
+    "floor-008/campus.png": "overview-light-4ecd94b77ee8fa2b.webp",
+    "floor-009/campus.png": "overview-light-8a9872c9f6e9a3bc.webp",
+    "floor-010/campus.png": "overview-light-b0d46a5a2bb9cc77.webp",
+    "floor-011/campus.png": "overview-light-7564b3ad5725fd16.webp"
+  }
+}
